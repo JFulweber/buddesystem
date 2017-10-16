@@ -7,11 +7,11 @@ const { spawn } = require('child_process');
 
 ps.lookup({
     command: "mongod",
-}, function(err, res){
-    if(err) throw err;
-    res.forEach(function(process){
-        if(process){
-            if(process.pid != mongodb.pid)
+}, function (err, res) {
+    if (err) throw err;
+    res.forEach(function (process) {
+        if (process) {
+            if (process.pid != mongodb.pid)
                 console.log(ps.kill(process.pid));
         }
     });
@@ -33,7 +33,7 @@ mongodb.on('close', (code) => {
 
 /*
     EXPRESS SETUP
-*/ 
+*/
 var express = require('express');
 
 var server = express();
@@ -61,9 +61,9 @@ mongoose.connect('localhost:27017', function (err) {
 server.get('/graphiql', graphiqlExpress({ endpointURL: '/graphql' })); // if you want GraphiQL enabled
  */
 
- /*
-    RUN SERVER
- */
+/*
+   RUN SERVER
+*/
 server.listen(PORT, function () {
     console.log(`Listening on ${PORT}`)
 })

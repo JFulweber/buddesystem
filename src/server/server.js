@@ -1,5 +1,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var groups = require('./mongo/schemas/group');
 
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import bodyParser from 'body-parser';

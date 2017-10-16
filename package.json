@@ -1,0 +1,44 @@
+{
+  "name": "indepstudy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^1.1.6",
+    "body-parser": "^1.18.2",
+    "css-loader": "^0.28.7",
+    "express": "^4.16.1",
+    "graphql-tools": "^2.3.0",
+    "react": "^16.0.0",
+    "react-apollo": "^1.4.16",
+    "react-dom": "^16.0.0",
+    "style-loader": "^0.19.0"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-react-css-modules": "^3.3.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.1",
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "mongo": "^0.1.0",
+    "mongoose": "^4.12.0",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.7",
+    "sass-loader": "^6.0.6",
+    "sourcemap": "^0.1.0",
+    "style-loader": "^0.19.0",
+    "webpack": "^3.6.0"
+  }
+}

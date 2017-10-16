@@ -1,0 +1,24 @@
+.navbar{
+    ul{
+        list-style-type: none;
+    }
+    li{
+        float: left;
+        border-spacing: 10px;
+        margin-top: 0;
+        a{
+            color: #646464;
+            display: block;
+            text-align: center;
+            align-content: center;
+            text-decoration: none;
+        }
+
+        &:hover{
+            a{
+                color:aqua;
+            }
+        }
+    }
+    
+}

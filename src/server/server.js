@@ -1,6 +1,6 @@
 
 /*
-    MONGO SETUP
+    MONGO (PROCESS) SETUP
 */
 var ps = require('ps-node');
 const { spawn } = require('child_process');
@@ -11,23 +11,23 @@ ps.lookup({
     if (err) throw err;
     res.forEach(function (process) {
         if (process) {
-            if (process.pid != mongodb.pid)
+            if (process.pid != mongodb_process.pid)
                 console.log(ps.kill(process.pid));
         }
     });
 })
 
-var mongodb = spawn('mongod');
+var mongodb_process = spawn('mongod');
 
-mongodb.stdout.on('data', (data) => {
+mongodb_process.stdout.on('data', (data) => {
     console.log(`stdout: ${data}`);
 });
 
-mongodb.stderr.on('data', (data) => {
+mongodb_process.stderr.on('data', (data) => {
     console.log(`stderr: ${data}`);
 });
 
-mongodb.on('close', (code) => {
+mongodb_process.on('close', (code) => {
     console.log(`child process exited with code ${code}`);
 });
 
@@ -50,6 +50,9 @@ import bodyParser from 'body-parser';
 
 var myGraphQLSchema = require('./graphql/schemas/test');
 
+/*
+    MONGOOSE/MONGO SETUP
+*/
 var mongoose = require('mongoose');
 var groups = require('./mongo/schemas/group');
 

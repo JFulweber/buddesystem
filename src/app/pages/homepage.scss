@@ -1,0 +1,26 @@
+
+@mixin centerer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+
+.homepage {
+    @include centerer;
+    background-color:lightpink;
+    padding: 25px;
+    &:hover{
+        transition: background-color 0.1s gray;
+        
+    }
+    p {
+        font-family: 'Comic Sans MS';
+        &:hover{
+            background-color: gray;
+            color: blue;
+        }
+    }
+}
+

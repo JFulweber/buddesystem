@@ -1,11 +1,12 @@
-.maindiv {
-    background-color: #DA2626
+.header{
+    height: 5%;
+    width: 100%;
+    background-color: lightblue;
 }
 
 .body{
     background-color: pink;
-    p{
-        font-family: 'Segoe UI';
-        color: green;
-    }
+    top: 5%;
+    width: 100%;
+    height: 95%;
 }

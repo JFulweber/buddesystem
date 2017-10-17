@@ -17,6 +17,10 @@ ps.lookup({
     });
 })
 
+process.on('exit', function(){
+    ps.kill(process.pid);
+})
+
 var mongodb_process = spawn('mongod');
 
 mongodb_process.stdout.on('data', (data) => {

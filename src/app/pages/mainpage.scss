@@ -1,0 +1,11 @@
+.page{
+    background-color: blue;
+    div{
+        background-color: gray;
+        font-family: 'Gill Sans';
+        color: cornsilk;      
+        ::hover{
+            background-color: rgb(79, 79, 79)
+        }
+    }
+}

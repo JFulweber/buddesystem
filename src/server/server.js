@@ -52,11 +52,17 @@ server.use(express.static('./dist'));
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import bodyParser from 'body-parser';
 
-var myGraphQLSchema = require('./graphql/schemas/test');
+var myGraphQLSchema = require('./graphql/schemas/person');
+
+/*TODO: WTF */
+
+server.use('/graphql', bodyParser.json(), graphqlExpress({
+    myGraphQLSchema
+}));
 
 /*
     MONGOOSE/MONGO SETUP
-*/
+*/ 
 var mongoose = require('mongoose');
 var groups = require('./mongo/schemas/group');
 
@@ -64,13 +70,10 @@ mongoose.connect('localhost:27017', function (err) {
 
 })
 
-/* server.use('/graphql', bodyParser.json(), graphqlExpress({ schema: myGraphQLSchema }));
-server.get('/graphiql', graphiqlExpress({ endpointURL: '/graphql' })); // if you want GraphiQL enabled
- */
-
 /*
    RUN SERVER
 */
+
 server.listen(PORT, function () {
     console.log(`Listening on ${PORT}`)
 })

@@ -11,14 +11,15 @@
     @include centerer;
     background-color:lightpink;
     padding: 25px;
+    transition: ease-out .2s background-color;
     &:hover{
-        transition: background-color 0.1s gray;
-        
+        background-color: gray;
     }
     p {
-        font-family: 'Comic Sans MS';
+        font-family: 'Arial';
+        transition: ease 1s font-family;
         &:hover{
-            background-color: gray;
+            font-family: 'Comic Sans MS';
             color: blue;
         }
     }

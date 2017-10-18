@@ -1,4 +1,4 @@
-/* import { makeExecutableSchema } from 'graphql-tools';
+import { makeExecutableSchema } from 'graphql-tools';
 
 const typeDefs = `
     type Test {
@@ -50,4 +50,4 @@ const execSchema = makeExecutableSchema({
     typeDefs, resolvers
 });
 
-export default execSchema; */
+export default execSchema; 

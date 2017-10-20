@@ -17,14 +17,20 @@ ps.lookup({
     });
 })
 
-process.on('exit', function(){
+process.on('exit', function () {
     ps.kill(process.pid);
 })
+
+process.on('uncaughtException', function (exception) {
+    console.log(exception); // to see your exception details in the console
+    // if you are on production, maybe you can send the exception details to your
+    // email as well ?
+});
 
 var mongodb_process = spawn('mongod');
 
 mongodb_process.stdout.on('data', (data) => {
-    console.log(`stdout: ${data}`);
+    //console.log(`stdout: ${data}`);
 });
 
 mongodb_process.stderr.on('data', (data) => {
@@ -46,23 +52,47 @@ const PORT = 3000;
 
 server.use(express.static('./dist'));
 
-/* 
+/*
     GRAPHQL SETUP
 */
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
-import bodyParser from 'body-parser';
+var graphQlHTTP = require('express-graphql');
 
-var myGraphQLSchema = require('./graphql/schemas/person');
+var { buildSchema } = require('graphql');
 
-/*TODO: WTF */
+var schema = buildSchema(`
+    type Query {
+        hello:  [Int]
+        person: Person
+    }
 
-server.use('/graphql', bodyParser.json(), graphqlExpress({
-    myGraphQLSchema
-}));
+    type Person {
+        id: Int!
+        title: String
+        firstName: String!
+        lastName: String!
+    }
+`)
+
+
+var root = {
+    hello: function(args){
+        return [args].map(_ => 1 + Math.floor(Math.random() * 6));        
+    },
+    person: () => {
+        return [1, 2, 3].map(_ => 1 + Math.floor(Math.random() * 6));
+    }
+};
+
+
+server.use('/graphql', graphQlHTTP({
+    schema: schema,
+    rootValue: root,
+    graphiql: true
+}))
 
 /*
     MONGOOSE/MONGO SETUP
-*/ 
+*/
 var mongoose = require('mongoose');
 var groups = require('./mongo/schemas/group');
 

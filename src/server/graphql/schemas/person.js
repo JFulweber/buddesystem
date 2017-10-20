@@ -1,29 +1,23 @@
-import { makeExecutableSchema } from 'graphql-tools';
+var graphql = require('graphql');
 
-const typedefs = `
-    type Person{
-        id: Int!
-        firstName: String
-        lastName: String
-        interests: [String]
+var PersonType = new graphql.GraphQLObjectType({
+    name: 'Person',
+    fields: function(){
+        return{
+            id: {
+                type: graphql.GraphQLID,
+                description: 'ID of Person'
+            },
+            title: {
+                type: graphql.GraphQLString,
+                description: 'Title of Person (Mr, Ms, Mrs, Dr, etc)'
+            },
+            firstName: {
+                type: graphql.GraphQLString
+            },
+            lastName: {
+                type: graphql.GraphQLString
+            }
+        }
     }
-
-    type Query{
-        person(id: Int!): Person
-    }
-
-    schema{
-        query: Query
-    }
-`
-
-const resolvers = {
-    Query: {
-      person: (_, {id}) => find(person, {id: id})
-    }
-  };
-
-export const schema = makeExecutableSchema({
-    typeDefs,
-    resolvers
 })

@@ -61,8 +61,7 @@ var { buildSchema } = require('graphql');
 
 var schema = buildSchema(`
     type Query {
-        hello:  [Int]
-        person: Person
+        hello(ints:[Int]):  Int
     }
 
     type Person {
@@ -76,7 +75,7 @@ var schema = buildSchema(`
 
 var root = {
     hello: function(args){
-        return [args].map(_ => 1 + Math.floor(Math.random() * 6));        
+        return args.ints[0];     
     },
     person: () => {
         return [1, 2, 3].map(_ => 1 + Math.floor(Math.random() * 6));

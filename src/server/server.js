@@ -59,12 +59,9 @@ var graphQlHTTP = require('express-graphql');
 
 var { buildSchema } = require('graphql');
 
-// cool gamers
-
-
 var schema = buildSchema(`
     type Query {
-        hello(ints:[Int]):  Int
+        hello(ints:[Int]): Person
     }
 
     type Person {
@@ -78,7 +75,12 @@ var schema = buildSchema(`
 
 var root = {
     hello: function(args){
-        return args.ints[0];     
+        return {
+            id: 10,
+            title: "Jeff",
+            firstName: "uhuuu",
+            lastName:"last"
+        }    
     },
     person: () => {
         return [1, 2, 3].map(_ => 1 + Math.floor(Math.random() * 6));
@@ -101,6 +103,23 @@ var groups = require('./mongo/schemas/group');
 mongoose.connect('localhost:27017', function (err) {
 
 })
+
+mongoose.disconnect();
+
+/*
+HOST MONGODB DATABASE ON WEBSITE
+*/
+
+server.get('/db', function(req,res){
+    mongoose.connect('localhost:27017', function (err) {
+        if(err) throw err;    
+    });
+
+    var UserModel = require('./mongo/schemas/user');
+
+    mongoose.disconnect();
+});
+
 
 /*
    RUN SERVER

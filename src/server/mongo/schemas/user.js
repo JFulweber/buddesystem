@@ -1,20 +1,15 @@
 import { Schema } from 'mongoose';
-import { Login } from './login';
-import { Group } from './group';
+import mongoose from 'mongoose';
 
-let User = new Schema({
+var User = new Schema({
     username: String,
     email: String,
     joined: {
         type: Date, default: Date.now()
     },
     interests: [String],
-    groups: {
-        type: [Group]
-    },
-    friends: {
-        type: [User]
-    }
+    groups: [{type: mongoose.Schema.Types.ObjectId, ref: 'Group'}],
+    friends: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
 });
 
-export default User;
+export default require('mongoose').model('User',User);

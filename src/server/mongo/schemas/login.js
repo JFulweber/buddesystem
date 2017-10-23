@@ -8,3 +8,5 @@ let Login = new Schema({
         type: Date, default: Date.now()
     }
 });
+
+export default require('mongoose').model('Login',Login);

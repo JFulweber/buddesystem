@@ -59,6 +59,9 @@ var graphQlHTTP = require('express-graphql');
 
 var { buildSchema } = require('graphql');
 
+// cool gamers
+
+
 var schema = buildSchema(`
     type Query {
         hello(ints:[Int]):  Int

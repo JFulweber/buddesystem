@@ -15,4 +15,4 @@ var Post = new Schema({
     }
 })
 
-export default require('mongoose').model('Post',Post);
+export default Post;

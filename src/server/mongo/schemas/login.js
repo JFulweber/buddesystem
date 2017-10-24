@@ -9,4 +9,4 @@ let Login = new Schema({
     }
 });
 
-export default require('mongoose').model('Login',Login);
+export default Login;

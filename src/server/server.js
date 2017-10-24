@@ -98,26 +98,42 @@ server.use('/graphql', graphQlHTTP({
     MONGOOSE/MONGO SETUP
 */
 var mongoose = require('mongoose');
-var groups = require('./mongo/schemas/group');
 
-mongoose.connect('localhost:27017', function (err) {
+var UserObj= require('./mongo/schemas/user');
+console.log(UserObj);
 
+var UserSchema = new mongoose.Schema(UserObj);
+
+//console.log(UserSchema);
+
+console.log("TYPEOF USERSCHEMA:"+typeof(UserSchema));
+
+mongoose.connect('localhost:27017', function(err){
+    if(err) throw err;
+});
+
+var userModel = mongoose.model('User',UserSchema);
+
+var user = new userModel({
+    username: "hi"
 })
-
-mongoose.disconnect();
-
+console.log(user);
 /*
 HOST MONGODB DATABASE ON WEBSITE
 */
 
+
+
+
 server.get('/db', function(req,res){
+    console.log('getting database');
     mongoose.connect('localhost:27017', function (err) {
         if(err) throw err;    
     });
 
-    var UserModel = require('./mongo/schemas/user');
 
     mongoose.disconnect();
+   // res.send('Check mongo!');
 });
 
 

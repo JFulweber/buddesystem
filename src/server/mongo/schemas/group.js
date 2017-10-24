@@ -11,4 +11,4 @@ let Group = new Schema({
     posts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Post'}]
 });
 
-export default mongoose.model('Group', Group);
+export default Group;

@@ -29,10 +29,10 @@ process.on('uncaughtException', function (exception) {
 
 var mongodb_process = spawn('mongod');
 
-mongodb_process.stdout.on('data', (data) => {
-    //console.log(`stdout: ${data}`);
+/* mongodb_process.stdout.on('data', (data) => {
+    console.log(`stdout: ${data}`);
 });
-
+ */
 mongodb_process.stderr.on('data', (data) => {
     console.log(`stderr: ${data}`);
 });
@@ -97,43 +97,43 @@ server.use('/graphql', graphQlHTTP({
 /*
     MONGOOSE/MONGO SETUP
 */
+
 var mongoose = require('mongoose');
 
-var UserObj= require('./mongo/schemas/user');
-console.log(UserObj);
-
-var UserSchema = new mongoose.Schema(UserObj);
-
-//console.log(UserSchema);
-
-console.log("TYPEOF USERSCHEMA:"+typeof(UserSchema));
+var UserSchema = require('./mongo/schemas/user');
+var User = mongoose.model('User',UserSchema);
 
 mongoose.connect('localhost:27017', function(err){
     if(err) throw err;
+    
+    var mUser = new User({
+        username: 'jeff'
+    });
+    var promise = mUser.save();
+    promise.then(result => {
+        mongoose.disconnect();
+    });
 });
 
-var userModel = mongoose.model('User',UserSchema);
 
-var user = new userModel({
-    username: "hi"
-})
-console.log(user);
 /*
 HOST MONGODB DATABASE ON WEBSITE
 */
 
-
-
-
 server.get('/db', function(req,res){
-    console.log('getting database');
-    mongoose.connect('localhost:27017', function (err) {
-        if(err) throw err;    
+    var _send = "";
+    mongoose.connect('localhost:27017', function(err){
+        User.find({}, function(users, err){
+            if(err) throw err;
+            users.forEach(function(user){
+                console.log(user.username);
+                _send += "Username: "+user.username + " \n"
+            });
+        });
     });
-
-
-    mongoose.disconnect();
-   // res.send('Check mongo!');
+    //console.log(_send);
+    res.send('ree');
+    //res.send(_send.toString());
 });
 
 

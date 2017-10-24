@@ -15,4 +15,4 @@ var Post = new Schema({
     }
 })
 
-export default Post;
+module.exports = Post;

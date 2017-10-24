@@ -1,14 +1,16 @@
 import mongoose from 'mongoose';
 import { Schema } from 'mongoose';
+import Post from './post';
+import User from './user';
 
 let Group = new Schema({
     name: String,
     description: String,
-    users: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
+    users: [User],
     creation: {
         type: Date, default: Date.now()
     },
-    posts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Post'}]
+    posts: [Post]
 });
 
-export default Group;
+module.exports = Group;

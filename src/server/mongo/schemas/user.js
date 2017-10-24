@@ -2,14 +2,15 @@ import { Schema } from 'mongoose';
 import mongoose from 'mongoose';
 import Group from './group';
 
-var User = {
+var User = new Schema({
     username: String,
     email: String,
     joined: {
         type: Date, default: Date.now()
     },
     interests: [String],
-    groups: [Group]
-};
+    groups: [Group],
+    friends: [[this]]
+});
 
-export default User;
+module.exports = User;

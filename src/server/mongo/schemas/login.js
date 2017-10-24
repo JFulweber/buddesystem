@@ -9,4 +9,4 @@ let Login = new Schema({
     }
 });
 
-export default Login;
+module.exports = Login;

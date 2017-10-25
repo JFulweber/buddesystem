@@ -74,13 +74,13 @@ var schema = buildSchema(`
 
 
 var root = {
-    hello: function(args){
+    hello: function (args) {
         return {
             id: 10,
             title: "Jeff",
             firstName: "uhuuu",
-            lastName:"last"
-        }    
+            lastName: "last"
+        }
     },
     person: () => {
         return [1, 2, 3].map(_ => 1 + Math.floor(Math.random() * 6));
@@ -101,11 +101,11 @@ server.use('/graphql', graphQlHTTP({
 var mongoose = require('mongoose');
 
 var UserSchema = require('./mongo/schemas/user');
-var User = mongoose.model('User',UserSchema);
+var User = mongoose.model('User', UserSchema);
 
-mongoose.connect('localhost:27017', function(err){
-    if(err) throw err;
-    
+mongoose.connect('localhost:27017', function (err) {
+    if (err) throw err;
+
     var mUser = new User({
         username: 'jeff'
     });
@@ -120,22 +120,21 @@ mongoose.connect('localhost:27017', function(err){
 HOST MONGODB DATABASE ON WEBSITE
 */
 
-server.get('/db', function(req,res){
+server.get('/db', function (req, res) {
     var _send = "";
-    mongoose.connect('localhost:27017', function(err){
-        User.find({}, function(users, err){
-            if(err) throw err;
-            users.forEach(function(user){
-                console.log(user.username);
-                _send += "Username: "+user.username + " \n"
-            });
+    mongoose.connect('localhost:27017', function (err) {
+        User.find({}, function (err,result) {
+            result.forEach(function(user){
+                _send += user.username + "\n";
+            })
+            res.send(_send);
+            mongoose.disconnect();
         });
+        //console.log(_send);
+        //res.send('ree');
+        //res.send(_send.toString());
     });
-    //console.log(_send);
-    res.send('ree');
-    //res.send(_send.toString());
-});
-
+})
 
 /*
    RUN SERVER

@@ -69,20 +69,11 @@ var graphQlHTTP = require('express-graphql');
 
 var { buildSchema } = require('graphql');
 
-var schema = buildSchema(`
-    type Query {
-        hello(ints:[Int]): Person
-    }
+var schema = buildSchema(require('./graphql/schemas/person').typedefs);
 
-    type Person {
-        id: Int!
-        title: String
-        firstName: String!
-        lastName: String!
-    }
-`)
+var root = require('./graphql/schemas/person').rootValue;
 
-
+/* 
 var root = {
     hello: function (args) {
         return {
@@ -96,7 +87,7 @@ var root = {
         return [1, 2, 3].map(_ => 1 + Math.floor(Math.random() * 6));
     }
 };
-
+ */
 
 server.use('/graphql', graphQlHTTP({
     schema: schema,
@@ -140,13 +131,13 @@ HOST MONGODB DATABASE ON WEBSITE
 */
 
 server.get('/db', function (req, res) {
-    var _send = "";
+    var _send = "<p style=\"font-size:25\"> Go to <a href=/adduser.html>add user</a> to add a user!</p>";
     mongoose.connect('localhost:27017', function (err) {
         var stack = {};
         User.find({}, function (err,result) {
             while(result.length > 0){
                 var pop = result.pop();
-                _send += `<p>User ${result.length}: username: ${pop.username} in the database</p>`;
+                _send += `<p>User ${result.length}: username: ${pop.username}, email: ${pop.email} and join date of: ${pop.joined} in the database</p>`;
             }
             res.send(_send);
             mongoose.disconnect();

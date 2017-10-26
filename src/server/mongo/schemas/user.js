@@ -9,7 +9,6 @@ var User = new Schema({
         type: Date, default: Date.now()
     },
     interests: [String],
-    groups: [Group],
     friends: [[this]]
 });
 

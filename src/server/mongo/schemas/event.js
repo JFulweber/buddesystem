@@ -7,7 +7,9 @@ var event = new Schema({
     description: String,
     usersInterested: [User],
     date: Date,
-    comments: [Post]
+    comments: [Post],
+    locationName: String,
+    locationAddress: String
 })
 
 module.expots = event;

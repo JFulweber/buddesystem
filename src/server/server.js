@@ -130,9 +130,6 @@ server.get('/db', function (req, res) {
             res.send(_send);
             mongoose.disconnect();
         });
-        //console.log(_send);
-        //res.send('ree');
-        //res.send(_send.toString());
     });
 })
 

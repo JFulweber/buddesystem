@@ -1,0 +1,41 @@
+.navbar__navbar___3dtQM ul {
+  list-style-type: none; }
+
+.navbar__navbar___3dtQM li {
+  float: left;
+  border-spacing: 10px;
+  margin-top: 0; }
+  .navbar__navbar___3dtQM li a {
+    color: #646464;
+    display: block;
+    text-align: center;
+    align-content: center;
+    text-decoration: none; }
+  .navbar__navbar___3dtQM li:hover a {
+    color: aqua; }
+.layout__header___2lhv9 {
+  height: 5%;
+  width: 100%;
+  background-color: lightblue; }
+
+.layout__body___26l0X {
+  background-color: pink;
+  top: 5%;
+  width: 100%;
+  height: 95%; }
+.homepage__homepage___PVkGi {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: lightpink;
+  padding: 25px;
+  transition: ease-out .2s background-color; }
+  .homepage__homepage___PVkGi:hover {
+    background-color: gray; }
+  .homepage__homepage___PVkGi p {
+    font-family: 'Arial';
+    transition: ease 1s font-family; }
+    .homepage__homepage___PVkGi p:hover {
+      font-family: 'Comic Sans MS';
+      color: blue; }

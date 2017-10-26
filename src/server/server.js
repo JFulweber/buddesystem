@@ -2,6 +2,8 @@
 /*
     MONGO (PROCESS) SETUP
 */
+
+//#region mongo_setup
 var ps = require('ps-node');
 const { spawn } = require('child_process');
 
@@ -40,10 +42,13 @@ mongodb_process.stderr.on('data', (data) => {
 mongodb_process.on('close', (code) => {
     console.log(`child process exited with code ${code}`);
 });
+//#endregion mongo_setup
 
 /*
     EXPRESS SETUP
 */
+
+//#region express_setup
 var express = require('express');
 
 var server = express();
@@ -52,9 +57,14 @@ const PORT = 3000;
 
 server.use(express.static('./dist'));
 
+//#endregion express_setup
+
 /*
     GRAPHQL SETUP
 */
+
+//#region graphql_setup
+
 var graphQlHTTP = require('express-graphql');
 
 var { buildSchema } = require('graphql');
@@ -94,16 +104,23 @@ server.use('/graphql', graphQlHTTP({
     graphiql: true
 }))
 
+//#endregion graphql_setup
+
 /*
     MONGOOSE/MONGO SETUP
 */
+
+//#region mongoose_setup
 
 var mongoose = require('mongoose');
 
 var UserSchema = require('./mongo/schemas/user');
 var User = mongoose.model('User', UserSchema);
 
-mongoose.connect('localhost:27017', function (err) {
+
+// testing setting up a user
+
+/* mongoose.connect('localhost:27017', function (err) {
     if (err) throw err;
 
     var mUser = new User({
@@ -114,7 +131,9 @@ mongoose.connect('localhost:27017', function (err) {
         mongoose.disconnect();
     });
 });
+ */
 
+//#endregion mongoose_setup
 
 /*
 HOST MONGODB DATABASE ON WEBSITE
@@ -123,15 +142,31 @@ HOST MONGODB DATABASE ON WEBSITE
 server.get('/db', function (req, res) {
     var _send = "";
     mongoose.connect('localhost:27017', function (err) {
+        var stack = {};
         User.find({}, function (err,result) {
-            result.forEach(function(user){
-                _send += user.username + "\n";
-            })
+            while(result.length > 0){
+                var pop = result.pop();
+                _send += `<p>User ${result.length}: username: ${pop.username} in the database</p>`;
+            }
             res.send(_send);
             mongoose.disconnect();
         });
-    });
+    }); 
 })
+
+server.get('/adduserdb', function(req,res){
+    mongoose.connect('localhost:27017', function(err){
+        if(err) throw err;
+        var mUser = new User({
+            username: req.query.username,
+            email: req.query.email,
+            joined: Date.now()
+        });
+        var Promise = mUser.save();
+        Promise.then(result => mongoose.disconnect());
+    })
+    res.redirect('/db');
+});
 
 /*
    RUN SERVER

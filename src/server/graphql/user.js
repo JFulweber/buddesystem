@@ -7,14 +7,14 @@ var typeDefs = `
     }
 
     type Query {
-        users: [User!]!
+        users: [User]!
     }
 
     type User {
         _id: String!
         username: String!,
         email: String!,
-        joined: Date,
+        joined: String,
         interests: [String],
         friends: [User]
     }
@@ -22,17 +22,19 @@ var typeDefs = `
 
 var resolvers = {
     Query: {
-        users: function(parent, args, { User }){
+        users: function (parent, args, { User }) {
             var mongoose = require('mongoose');
-            mongoose.connect('localhost:27017');
-            User.find({}, function(err, result){
-                return result.map((x)=>{
-                    x._id = x._id.toString();
-                }).then(()=>mongoose.disconnect());
-            });
+            return [{
+                _id: "hi",
+                username: "jeff",
+                email: "hi",
+                joined: Date.now().toString(),
+                interests: {},
+                friends: {}
+            }]
             //return null;
         }
     }
 }
 
-export default {typeDefs, resolvers};
+export default { typeDefs, resolvers };

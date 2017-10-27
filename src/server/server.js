@@ -65,66 +65,29 @@ server.use(express.static('./dist'));
 
 //#region graphql_setup
 
-var graphQlHTTP = require('express-graphql');
+import {graphqlExpress,graphiqlExpress} from 'apollo-server-express'
+import {makeExecutableSchema} from 'graphql-tools';
+import bodyParser from 'body-parser';
+import stuff from './graphql/user';
 
-var { buildSchema } = require('graphql');
-
-var schema = buildSchema(require('./graphql/schemas/person').typedefs);
-
-var root = require('./graphql/schemas/person').rootValue;
-
-/* 
-var root = {
-    hello: function (args) {
-        return {
-            id: 10,
-            title: "Jeff",
-            firstName: "uhuuu",
-            lastName: "last"
-        }
-    },
-    person: () => {
-        return [1, 2, 3].map(_ => 1 + Math.floor(Math.random() * 6));
-    }
-};
- */
-
-server.use('/graphql', graphQlHTTP({
-    schema: schema,
-    rootValue: root,
-    graphiql: true
-}))
-
-//#endregion graphql_setup
-
-/*
-    MONGOOSE/MONGO SETUP
-*/
-
-//#region mongoose_setup
+var typeDefs = stuff.typeDefs;
+var resolvers = stuff.resolvers;
 
 var mongoose = require('mongoose');
-
 var UserSchema = require('./mongo/schemas/user');
 var User = mongoose.model('User', UserSchema);
 
+console.log(User);
 
-// testing setting up a user
-
-/* mongoose.connect('localhost:27017', function (err) {
-    if (err) throw err;
-
-    var mUser = new User({
-        username: 'jeff'
-    });
-    var promise = mUser.save();
-    promise.then(result => {
-        mongoose.disconnect();
-    });
+const schema = makeExecutableSchema({
+    typeDefs, resolvers
 });
- */
 
-//#endregion mongoose_setup
+server.use('/graphql', bodyParser.json(), graphqlExpress({
+    schema, context: {User}
+}));
+
+server.use('/graphiql', graphiqlExpress({endpointURL:'/graphql'}));
 
 /*
 HOST MONGODB DATABASE ON WEBSITE

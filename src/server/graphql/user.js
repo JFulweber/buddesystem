@@ -22,19 +22,24 @@ var typeDefs = `
 
 var resolvers = {
     Query: {
-        users: function (parent, args, { User }) {
-            var mongoose = require('mongoose');
-            return [{
-                _id: "hi",
-                username: "jeff",
-                email: "hi",
-                joined: Date.now().toString(),
-                interests: {},
-                friends: {}
-            }]
-            //return null;
+        users: async function (parent, args, { User }) {
+            return await getUsers(User)
         }
     }
+}
+
+const getUsers = function(User){
+    var mongoose = require('mongoose');
+    return new Promise((resolve, reject) => {
+        mongoose.connect('localhost:27017', function (err) {
+            if (err)
+                reject(err);
+            User.find({}).then(results => {
+                console.log(results);
+                resolve(results);
+            });
+        });
+    });  
 }
 
 export default { typeDefs, resolvers };

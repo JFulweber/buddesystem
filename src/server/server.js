@@ -75,6 +75,7 @@ var resolvers = stuff.resolvers;
 
 var mongoose = require('mongoose');
 var UserSchema = require('./mongo/schemas/user');
+
 var User = mongoose.model('User', UserSchema);
 
 console.log(User);

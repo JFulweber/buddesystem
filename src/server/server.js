@@ -1,4 +1,8 @@
 
+async function sleep(ms) {
+    return await new Promise(resolve => setTimeout(resolve, ms));
+}
+
 /*
     MONGO (PROCESS) SETUP
 */
@@ -65,30 +69,28 @@ server.use(express.static('./dist'));
 
 //#region graphql_setup
 
-import {graphqlExpress,graphiqlExpress} from 'apollo-server-express'
-import {makeExecutableSchema} from 'graphql-tools';
+import { graphqlExpress, graphiqlExpress } from 'apollo-server-express'
+import { makeExecutableSchema } from 'graphql-tools';
 import bodyParser from 'body-parser';
-import stuff from './graphql/user';
-
-var typeDefs = stuff.typeDefs;
-var resolvers = stuff.resolvers;
+import typeDefs from './graphql/typeDefs';
+import resolvers from './graphql/resolvers';
 
 var mongoose = require('mongoose');
+mongoose.connect('localhost:27017');
+
 var UserSchema = require('./mongo/schemas/user');
 
 var User = mongoose.model('User', UserSchema);
-
-console.log(User);
 
 const schema = makeExecutableSchema({
     typeDefs, resolvers
 });
 
 server.use('/graphql', bodyParser.json(), graphqlExpress({
-    schema, context: {User}
+    schema, context: { User }
 }));
 
-server.use('/graphiql', graphiqlExpress({endpointURL:'/graphql'}));
+server.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 
 /*
 HOST MONGODB DATABASE ON WEBSITE
@@ -96,30 +98,26 @@ HOST MONGODB DATABASE ON WEBSITE
 
 server.get('/db', function (req, res) {
     var _send = "<p style=\"font-size:25\"> Go to <a href=/adduser.html>add user</a> to add a user!</p>";
-    mongoose.connect('localhost:27017', function (err) {
-        var stack = {};
-        User.find({}, function (err,result) {
-            while(result.length > 0){
-                var pop = result.pop();
-                _send += `<p>User ${result.length}: username: ${pop.username}, email: ${pop.email} and join date of: ${pop.joined} in the database</p>`;
-            }
-            res.send(_send);
-            mongoose.disconnect();
-        });
-    }); 
+    var stack = {};
+    User.find({}, function (err, result) {
+        while (result.length > 0) {
+            var pop = result.pop();
+            _send += `<p>User ${result.length}: username: ${pop.username}, email: ${pop.email} and join date of: ${pop.joined} in the database</p>`;
+        }
+        res.send(_send);
+        mongoose.disconnect();
+    });
 })
 
-server.get('/adduserdb', function(req,res){
-    mongoose.connect('localhost:27017', function(err){
-        if(err) throw err;
-        var mUser = new User({
-            username: req.query.username,
-            email: req.query.email,
-            joined: Date.now()
-        });
-        var Promise = mUser.save();
-        Promise.then(result => mongoose.disconnect());
-    })
+server.get('/adduserdb', function (req, res) {
+    if (err) throw err;
+    var mUser = new User({
+        username: req.query.username,
+        email: req.query.email,
+        joined: Date.now()
+    });
+    var Promise = mUser.save();
+    Promise.then(result => mongoose.disconnect());
     res.redirect('/db');
 });
 
@@ -130,3 +128,5 @@ server.get('/adduserdb', function(req,res){
 server.listen(PORT, function () {
     console.log(`Listening on ${PORT}`)
 })
+
+module.exports = mongoose;

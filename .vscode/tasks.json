@@ -1,0 +1,45 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "npm",
+            "script": "install",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "taskName": "Build full test",
+            "type": "process",
+            "windows": {
+                "command": "webpack; babel-node ./src/server/server.js"
+            }
+        },
+        {
+            "taskName": "Run server",
+            "type": "process",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "new"
+            },
+            "windows": {
+                "command": "babel-node ./src/server/server.js"
+            }
+        },
+        {
+            "taskName":"Update Dependencies",
+            "type": "process",
+            "presentation": {
+                "echo": true
+            },
+            "windows": {
+                "command": "npm update; npm install"
+            }
+        }
+    ]
+}

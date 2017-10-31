@@ -1,0 +1,22 @@
+type Query{
+    validateLogin(email: String!, password: String!): Boolean!
+    logins: [Login]!
+}
+
+type Login{
+    email: String
+    password: String
+    joindate: Int!
+    user: User!
+}
+
+input NewUser{
+    email: String!
+    password: String!
+}
+
+type Mutation{
+    changeEmail(old: String!, new: String!): Boolean!
+    changePass(email: String!, old: String!, new: String!): Boolean!
+    registerLogin(newuser: NewUser!): Boolean!
+}

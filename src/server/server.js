@@ -79,15 +79,23 @@ var mongoose = require('mongoose');
 mongoose.connect('localhost:27017');
 
 var UserSchema = require('./mongo/schemas/user');
+var LoginSchema = require('./mongo/schemas/login');
+var GroupSchema = require('./mongo/schemas/group');
+var EventSchema = require('./mongo/schemas/event');
+var PostSchema = require('./mongo/schemas/post');
 
 var User = mongoose.model('User', UserSchema);
+var Login = mongoose.model('Login', LoginSchema);
+var Group = mongoose.model('Group', GroupSchema);
+var Event = mongoose.model('Event', EventSchema);
+var Post = mongoose.model('Post', PostSchema);
 
 const schema = makeExecutableSchema({
     typeDefs, resolvers
 });
 
 server.use('/graphql', bodyParser.json(), graphqlExpress({
-    schema, context: { User }
+    schema, context: { User, Login, Group, Event, Post }
 }));
 
 server.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));

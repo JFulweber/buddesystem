@@ -28,18 +28,16 @@ var resolvers = {
                 });
             });
         },
+        // whats going on here??
         joinGroup: async function (parent, args, {User, Group}){
             return await new Promise((resolve,reject)=>{
                 var group;
-                Group.find({_id: args.groupId}).then((result)=>{
-                    group = result;
-                })
-                User.findOne({email:args.email}).then((result)=>{
-                    if(!group) reject(false);
-                    result.groups.add(group);
-                    result.save().then(()=>{
-                        resolve(true);
-                    });
+                Group.find({_id: args.groupId}).then((group)=>{
+                    User.findOne({email:args.email}).then((user)=>{
+                        user.groups.push(group);
+                        console.log(user.groups);
+                        user.save().then(()=>resolve(true));
+                    })
                 })
             })
         }

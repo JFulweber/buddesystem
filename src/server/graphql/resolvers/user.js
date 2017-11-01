@@ -33,10 +33,20 @@ var resolvers = {
             return await new Promise((resolve,reject)=>{
                 var group;
                 Group.find({_id: args.groupId}).then((group)=>{
+                    console.log(group);
                     User.findOne({email:args.email}).then((user)=>{
                         user.groups.push(group);
                         console.log(user.groups);
-                        user.save().then(()=>resolve(true));
+                        var myPromise = user.save();
+                        console.log(`Promise:\n${myPromise}`)
+                        myPromise.then(()=>{
+                            console.log("in then");
+                        })
+                        myPromise.catch((err)=>{
+                            console.log("in catch");
+                            console.log(err);
+                            throw err;
+                        })
                     })
                 })
             })

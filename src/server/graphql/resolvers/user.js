@@ -3,6 +3,7 @@ var mongoose = require('../../server');
 var resolvers = {
     Query: {
         users: async function (parent, args, { User }) {
+            console.log('resolving')
             return await new Promise((resolve, reject) => {
                 User.find({}).then(results => {
                     resolve(results);
@@ -26,6 +27,21 @@ var resolvers = {
                     resolve(true);
                 });
             });
+        },
+        joinGroup: async function (parent, args, {User, Group}){
+            return await new Promise((resolve,reject)=>{
+                var group;
+                Group.find({_id: args.groupId}).then((result)=>{
+                    group = result;
+                })
+                User.findOne({email:args.email}).then((result)=>{
+                    if(!group) reject(false);
+                    result.groups.add(group);
+                    result.save().then(()=>{
+                        resolve(true);
+                    });
+                })
+            })
         }
     }
 }

@@ -7,6 +7,7 @@ var User = new Schema({
     email: !String,
     joined: String,
     interests: [String],
+    groups: [Group],
     friends: [[this]]
 });
 

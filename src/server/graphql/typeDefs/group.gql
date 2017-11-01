@@ -1,0 +1,23 @@
+type Query{
+    groups: [Group!]
+    group(id:ID!): Group!   
+}
+
+type Group{
+    id: ID!
+    name: String!
+    description: String
+    admins: [User!]!
+    members: [User!]!
+    creation: Int!
+}
+
+#creator is creator's email
+input InputGroup{
+    name: String!, creator: String! 
+}
+
+type Mutation{
+    addGroup(name: String!, creator: String!): Boolean
+    addMemberToGroup(group: ID!, member: ID!): Boolean!
+}

@@ -6,7 +6,8 @@ import User from './user';
 let Group = new Schema({
     name: String,
     description: String,
-    users: [User],
+    admins: [User],
+    members: [User],
     creation: {
         type: Date, default: Date.now()
     },

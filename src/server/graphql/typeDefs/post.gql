@@ -1,0 +1,7 @@
+type Post{
+    poster: ID!
+    title: String!
+    text: String!
+    time: String!
+    replies: [Post!]!
+}

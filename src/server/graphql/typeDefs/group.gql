@@ -19,5 +19,4 @@ input InputGroup{
 
 type Mutation{
     addGroup(name: String!, creator: String!): Boolean
-    addMemberToGroup(group: ID!, member: ID!): Boolean!
 }

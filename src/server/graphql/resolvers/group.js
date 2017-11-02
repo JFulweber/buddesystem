@@ -36,16 +36,6 @@ var resolvers = {
                 });
             });
         },
-        addMemberToGroup: async function (parent, args, { Group, User }) {
-            return await new Promise((resolve, reject) => {
-                User.findOne({ _id: args.member }).then((user) => {
-                    Group.findById(args.group).then((group) => {
-                        group.members.add(user);
-                        resolve(true);
-                    })
-                });
-            });
-        }
     }
 }
 

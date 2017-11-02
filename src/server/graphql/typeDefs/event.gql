@@ -1,0 +1,28 @@
+type Query{
+    events: [Event!]
+    event(id:ID!): Event
+}
+
+type Event{
+    title: String!
+    description: String
+    usersInterested: [ID!]
+    date: String
+    comments: [Post!]
+    locationName: String
+    locationAddress: String
+    group_id: ID!
+}
+
+input NewEvent{
+    title: String!
+    description: String
+    date: String
+    locationName: String
+    locationAddress: String
+    group_id: ID!
+}
+
+type Mutation{
+    createEvent(event:NewEvent): Boolean!
+}

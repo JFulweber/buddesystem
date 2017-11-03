@@ -1,24 +1,28 @@
 .navbar{
+
     ul{
+        position: fixed;
+        top: 0;
+        width: 100%;
         list-style-type: none;
+        margin: 0;
+        background-color: lightgray;
     }
     li{
         float: left;
-        border-spacing: 10px;
-        margin-top: 0;
+        margin-top: 10px;
+        width: 50px;
+        background-color: lightgray;
         a{
-            color: #646464;
-            display: block;
-            text-align: center;
-            align-content: center;
             text-decoration: none;
         }
-
         &:hover{
-            a{
-                color:aqua;
+            li{
+                background-color:gray;
             }
         }
     }
+
+    
     
 }

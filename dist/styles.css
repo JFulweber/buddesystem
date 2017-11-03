@@ -1,29 +1,33 @@
-.navbar__navbar___3dtQM ul {
-  list-style-type: none; }
-
-.navbar__navbar___3dtQM li {
-  float: left;
-  border-spacing: 10px;
-  margin-top: 0; }
-  .navbar__navbar___3dtQM li a {
-    color: #646464;
-    display: block;
-    text-align: center;
-    align-content: center;
-    text-decoration: none; }
-  .navbar__navbar___3dtQM li:hover a {
-    color: aqua; }
-.layout__header___2lhv9 {
-  height: 5%;
+.navbar__navbar___1SGJv ul {
+  position: fixed;
+  top: 0;
   width: 100%;
-  background-color: lightblue; }
+  list-style-type: none;
+  margin: 0;
+  background-color: lightgray; }
 
-.layout__body___26l0X {
+.navbar__navbar___1SGJv li {
+  float: left;
+  margin-top: 10px;
+  width: 50px;
+  background-color: lightgray; }
+  .navbar__navbar___1SGJv li a {
+    text-decoration: none; }
+  .navbar__navbar___1SGJv li:hover li {
+    background-color: gray; }
+.layout__header___2Mr3M {
+  top: 0;
+  margin: 0;
+  height: 5%;
+  width: 100%; }
+
+.layout__body___3c8YO {
   background-color: pink;
+  margin: 0;
   top: 5%;
   width: 100%;
   height: 95%; }
-.homepage__homepage___PVkGi {
+.homepage__homepage___1JcmJ {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -31,11 +35,11 @@
   background-color: lightpink;
   padding: 25px;
   transition: ease-out .2s background-color; }
-  .homepage__homepage___PVkGi:hover {
+  .homepage__homepage___1JcmJ:hover {
     background-color: gray; }
-  .homepage__homepage___PVkGi p {
+  .homepage__homepage___1JcmJ p {
     font-family: 'Arial';
     transition: ease 1s font-family; }
-    .homepage__homepage___PVkGi p:hover {
+    .homepage__homepage___1JcmJ p:hover {
       font-family: 'Comic Sans MS';
       color: blue; }

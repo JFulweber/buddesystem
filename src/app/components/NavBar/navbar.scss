@@ -1,28 +1,29 @@
 .navbar{
-
-    ul{
-        position: fixed;
-        top: 0;
-        width: 100%;
+    ul {
         list-style-type: none;
         margin: 0;
-        background-color: lightgray;
+        padding: 0;
+        height: 100%;
+        width: 100%;
     }
-    li{
-        float: left;
-        margin-top: 10px;
-        width: 50px;
+
+    li {
         background-color: lightgray;
-        a{
+        transition: ease-in-out .2s background-color;
+        height: 100%;
+        float: left;
+        a {
+            display: block;
+            color: rgb(61, 61, 61);
+            text-align: center;
+            padding: 14px 16px;
             text-decoration: none;
         }
         &:hover{
-            li{
-                background-color:gray;
-            }
+            background-color: gray;
+        }      
+        &:last-child{
+            float:right;  
         }
     }
-
-    
-    
 }

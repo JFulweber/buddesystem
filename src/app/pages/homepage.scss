@@ -12,15 +12,30 @@
     background-color:lightpink;
     padding: 25px;
     transition: ease-out .2s background-color;
+
     &:hover{
         background-color: gray;
     }
-    p {
+    .arial {
+        position: absolute;
+        top: 50%;
+        width: 100%;
         font-family: 'Arial';
-        transition: ease 1s font-family;
+        transition: ease .5s opacity;
         &:hover{
-            font-family: 'Comic Sans MS';
-            color: blue;
+            opacity: 0;
+        }
+    }
+    
+    .sans {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        font-family: 'Comic Sans MS';
+        opacity: 0;
+        transition: ease .5s opacity;
+        &:hover{
+            opacity: 1;
         }
     }
 }

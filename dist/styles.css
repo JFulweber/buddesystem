@@ -6,7 +6,6 @@
   width: 100%; }
 
 .navbar__navbar___1SGJv li {
-  background-color: lightgray;
   transition: ease-in-out .2s background-color;
   height: 100%;
   float: left; }
@@ -15,48 +14,46 @@
     color: #3d3d3d;
     text-align: center;
     padding: 14px 16px;
-    text-decoration: none; }
+    text-decoration: none;
+    border: 0px; }
   .navbar__navbar___1SGJv li:hover {
-    background-color: gray; }
+    background-color: #696D7D; }
   .navbar__navbar___1SGJv li:last-child {
     float: right; }
+  .navbar__navbar___1SGJv li .navbar__active___2dEb1 {
+    border: 5px; }
 .layout__header___2Mr3M {
   height: 5%;
   width: 100%;
-  background-color: lightgray;
+  background-color: #DB5461;
   padding: 0px; }
 
 .layout__body___3c8YO {
-  background-color: pink;
+  background-color: #686963;
   margin: 0px;
   top: 5%;
   width: 100%;
   height: 95%;
   padding: 0px; }
 .homepage__homepage___1JcmJ {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: lightpink;
-  padding: 25px;
-  transition: ease-out .2s background-color; }
-  .homepage__homepage___1JcmJ:hover {
-    background-color: gray; }
-  .homepage__homepage___1JcmJ .homepage__arial___mDQon {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    font-family: 'Arial';
-    transition: ease .5s opacity; }
-    .homepage__homepage___1JcmJ .homepage__arial___mDQon:hover {
-      opacity: 0; }
-  .homepage__homepage___1JcmJ .homepage__sans___i19Oa {
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    font-family: 'Comic Sans MS';
-    opacity: 0;
-    transition: ease .5s opacity; }
-    .homepage__homepage___1JcmJ .homepage__sans___i19Oa:hover {
-      opacity: 1; }
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  background-color: #686963; }
+
+.homepage__borderContainer___3xOFz {
+  height: auto;
+  width: 80%;
+  background-color: #8AA29E; }
+.banner__banner___1sE58 {
+  background-color: #FAF5E3;
+  width: 100%;
+  height: 15%;
+  text-align: center;
+  display: table; }
+  .banner__banner___1sE58 p {
+    font-family: 'Ubuntu';
+    font-size: 50px;
+    display: table-cell;
+    vertical-align: middle; }

@@ -8,35 +8,18 @@
 
 
 .homepage {
-    @include centerer;
-    background-color:lightpink;
-    padding: 25px;
-    transition: ease-out .2s background-color;
-
-    &:hover{
-        background-color: gray;
-    }
-    .arial {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        font-family: 'Arial';
-        transition: ease .5s opacity;
-        &:hover{
-            opacity: 0;
-        }
-    }
-    
-    .sans {
-        position: absolute;
-        width: 100%;
-        top: 50%;
-        font-family: 'Comic Sans MS';
-        opacity: 0;
-        transition: ease .5s opacity;
-        &:hover{
-            opacity: 1;
-        }
-    }
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: #686963;
 }
 
+.borderContainer{
+    height: auto;
+    width: 80%;
+    background-color: #8AA29E;
+}
+
+
+//https://coolors.co/faf3dd-db5461-686963-8aa29e-696d7d

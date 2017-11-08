@@ -8,7 +8,6 @@
     }
 
     li {
-        background-color: lightgray;
         transition: ease-in-out .2s background-color;
         height: 100%;
         float: left;
@@ -18,12 +17,16 @@
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
+            border: 0px;
         }
         &:hover{
-            background-color: gray;
+            background-color: #696D7D;
         }      
         &:last-child{
             float:right;  
+        }
+        & .active{
+            border: 5px;
         }
     }
 }

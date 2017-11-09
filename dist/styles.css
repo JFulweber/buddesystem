@@ -1,50 +1,54 @@
-.navbar__navbar___1SGJv ul {
+.navbar__navbar___3dtQM ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%; }
 
-.navbar__navbar___1SGJv li {
+.navbar__navbar___3dtQM li {
   transition: ease-in-out .2s background-color;
   height: 100%;
   float: left; }
-  .navbar__navbar___1SGJv li a {
+  .navbar__navbar___3dtQM li a {
     display: block;
     color: #3d3d3d;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     border: 0px; }
-  .navbar__navbar___1SGJv li:hover {
+  .navbar__navbar___3dtQM li:hover {
     background-color: #696D7D; }
-  .navbar__navbar___1SGJv li:last-child {
+  .navbar__navbar___3dtQM li:last-child {
     float: right; }
-  .navbar__navbar___1SGJv li .navbar__active___2dEb1 {
+  .navbar__navbar___3dtQM li .navbar__active___cTVWa {
     border: 5px; }
-.layout__header___2Mr3M {
+.layout__header___2lhv9 {
   height: 5%;
   width: 100%;
   background-color: #DB5461;
   padding: 0px; }
 
-.layout__body___3c8YO {
+.layout__body___26l0X {
   background-color: #686963;
   margin: 0px;
   top: 5%;
   width: 100%;
   height: 95%;
   padding: 0px; }
-.homepage__homepage___1JcmJ {
+.homepage__homepage___PVkGi {
   font-family: 'Ubuntu', sans-serif;
   width: 100%;
   margin: 0px;
-  padding: 50px;
+  padding: 0px;
+  padding-bottom: 50px;
   position: relative;
   background-color: #686963; }
 
-.homepage__borderContainer___3xOFz {
-  text-align: center;
+.homepage__borderContainer___2uHlk {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin: auto;
   width: 80%;
   border-style: double;
@@ -53,13 +57,27 @@
   border-color: #818f8c;
   background-color: #8AA29E;
   box-shadow: 1px 1px 1px #83817a; }
-.banner__banner___1sE58 {
+  .homepage__borderContainer___2uHlk .homepage__divider___1iWo9 {
+    margin-top: 100px;
+    margin-bottom: 100px; }
+  .homepage__borderContainer___2uHlk .homepage__big___AY1K4 {
+    font-size: 30px;
+    text-indent: 0px;
+    text-align: left;
+    margin-bottom: 20px;
+    text-decoration-line: underline; }
+  .homepage__borderContainer___2uHlk .homepage__descriptor___JGk-C {
+    text-align: left;
+    text-indent: 20px;
+    font-size: 20px; }
+.banner__banner___3VTf_ {
   background-color: #FAF5E3;
+  margin-bottom: 50px;
   width: 100%;
   height: 25%;
   text-align: center;
   display: table; }
-  .banner__banner___1sE58 p {
+  .banner__banner___3VTf_ p {
     font-family: 'Ubuntu';
     font-size: 50px;
     display: table-cell;

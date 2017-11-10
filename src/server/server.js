@@ -1,8 +1,4 @@
 
-async function sleep(ms) {
-    return await new Promise(resolve => setTimeout(resolve, ms));
-}
-
 /*
     MONGO (PROCESS) SETUP
 */
@@ -127,6 +123,12 @@ server.get('/adduserdb', function (req, res) {
     var Promise = mUser.save();
     Promise.then(result => mongoose.disconnect());
     res.redirect('/db');
+});
+
+var path = require('path');
+
+server.get('/*', function(req,res){
+    res.sendFile(path.resolve(__dirname,'../../dist/index.html'));
 });
 
 /*

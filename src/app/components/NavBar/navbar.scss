@@ -13,6 +13,7 @@
         float: left;
         a {
             display: block;
+            font-family: "Ubuntu";
             color: rgb(61, 61, 61);
             text-align: center;
             padding: 14px 16px;
@@ -20,7 +21,7 @@
             border: 0px;
         }
         &:hover{
-            background-color: #696D7D;
+            background-color: rgb(167, 65, 75);
         }      
         &:last-child{
             float:right;  

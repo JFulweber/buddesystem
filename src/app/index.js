@@ -5,10 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import MasterLayout from './layouts/MasterLayout/MasterLayout.jsx';
 import HomePage from './pages/HomePage.jsx';
 import Login from './pages/login.jsx';
-
-
-console.log(Route);
-
+import Register from './pages/register.jsx';
 
 ReactDOM.render(
     (
@@ -17,6 +14,7 @@ ReactDOM.render(
                 <Switch>
                     <Route exact path="/" component={HomePage}/>
                     <Route path="/login" component={Login}/>
+                    <Route path="/register" component={Register}/>
                 </Switch>
             </BrowserRouter>
         </MasterLayout>

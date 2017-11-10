@@ -23,18 +23,19 @@
   .navbar__navbar___3dtQM li .navbar__active___cTVWa {
     border: 5px; }
 .layout__header___2lhv9 {
-  height: 5%;
   width: 100%;
   background-color: #DB5461;
-  padding: 0px; }
+  height: 50px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999; }
 
 .layout__body___26l0X {
   background-color: #686963;
-  margin: 0px;
-  top: 5%;
-  width: 100%;
-  height: 95%;
-  padding: 0px; }
+  margin: 50px auto 0;
+  height: 100%;
+  width: 100%; }
 .homepage__homepage___PVkGi {
   font-family: 'Ubuntu', sans-serif;
   width: 100%;
@@ -43,8 +44,7 @@
   padding-bottom: 50px;
   position: relative;
   background-color: #686963; }
-
-.homepage__borderContainer___2uHlk {
+.allpages__borderContainer___7rciL {
   margin-top: 50px;
   margin-bottom: 50px;
   padding-left: 20px;
@@ -57,16 +57,16 @@
   border-color: #818f8c;
   background-color: #8AA29E;
   box-shadow: 1px 1px 1px #83817a; }
-  .homepage__borderContainer___2uHlk .homepage__divider___1iWo9 {
+  .allpages__borderContainer___7rciL .allpages__divider___Ug-Xd {
     margin-top: 100px;
     margin-bottom: 100px; }
-  .homepage__borderContainer___2uHlk .homepage__big___AY1K4 {
+  .allpages__borderContainer___7rciL .allpages__big___1Zmwk {
     font-size: 30px;
     text-indent: 0px;
     text-align: left;
     margin-bottom: 20px;
     text-decoration-line: underline; }
-  .homepage__borderContainer___2uHlk .homepage__descriptor___JGk-C {
+  .allpages__borderContainer___7rciL .allpages__descriptor___19ksN {
     text-align: left;
     text-indent: 20px;
     font-size: 20px; }
@@ -82,3 +82,7 @@
     font-size: 50px;
     display: table-cell;
     vertical-align: middle; }
+.login__login___1HNMz {
+  background-color: #686963;
+  font-family: "Ubuntu", sans-serif;
+  padding-top: 50px; }

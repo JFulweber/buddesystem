@@ -15,7 +15,7 @@ export default class Profile extends React.Component{
         
         return(
             <div className = {styles.borderContainer}>
-                <p> name jeff </p>
+                <p> {this.props.param.name} </p>
             </div>
         )
     }

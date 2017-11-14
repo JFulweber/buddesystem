@@ -29,6 +29,9 @@ const loaders = {
 
 
 module.exports = {
+    devServer: {
+        historyApiFallback: true
+    },
     context: __dirname,
     entry: './src/app/index.js',
     output: {

@@ -16,7 +16,7 @@ ReactDOM.render(
                     <Route exact path="/" component={HomePage}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
-                    <Route path="/profile/:name" component={Profile}/>
+                    <Route path="/profile/:name/" component={Profile}/>
                 </Switch>
             </BrowserRouter>
         </MasterLayout>

@@ -1,15 +1,15 @@
-.navbar__navbar___1SGJv ul {
+.navbar__navbar___3dtQM ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%; }
 
-.navbar__navbar___1SGJv li {
+.navbar__navbar___3dtQM li {
   transition: ease-in-out .2s background-color;
   height: 100%;
   float: left; }
-  .navbar__navbar___1SGJv li a {
+  .navbar__navbar___3dtQM li a {
     display: block;
     font-family: "Ubuntu";
     color: #3d3d3d;
@@ -17,13 +17,13 @@
     padding: 14px 16px;
     text-decoration: none;
     border: 0px; }
-  .navbar__navbar___1SGJv li:hover {
+  .navbar__navbar___3dtQM li:hover {
     background-color: #a7414b; }
-  .navbar__navbar___1SGJv li:last-child {
+  .navbar__navbar___3dtQM li:last-child {
     float: right; }
-  .navbar__navbar___1SGJv li .navbar__active___2dEb1 {
+  .navbar__navbar___3dtQM li .navbar__active___cTVWa {
     border: 5px; }
-.layout__header___2Mr3M {
+.layout__header___2lhv9 {
   width: 100%;
   background-color: #DB5461;
   height: 50px;
@@ -32,21 +32,21 @@
   top: 0;
   z-index: 999; }
 
-.layout__body___3c8YO {
+.layout__body___26l0X {
   margin: 50px auto 0;
   height: 100%;
   width: 100%;
   background: linear-gradient(135deg, #696D7D 22px, #FAF5E3 22px, #FAF5E3 24px, transparent 24px, transparent 67px, #FAF5E3 67px, #FAF5E3 69px, transparent 69px), linear-gradient(225deg, #696D7D 22px, #FAF5E3 22px, #FAF5E3 24px, transparent 24px, transparent 67px, #FAF5E3 67px, #FAF5E3 69px, transparent 69px) 0 64px;
   background-color: #696D7D;
   background-size: 64px 128px; }
-.homepage__homepage___1JcmJ {
+.homepage__homepage___PVkGi {
   font-family: 'Ubuntu', sans-serif;
   width: 100%;
   margin: 0px;
   padding: 0px;
   padding-bottom: 50px;
   position: relative; }
-.allpages__borderContainer___8tOIs {
+.allpages__borderContainer___7rciL {
   margin-top: 50px;
   margin-bottom: 50px;
   padding-left: 20px;
@@ -59,34 +59,34 @@
   border-color: #818f8c;
   background-color: #8AA29E;
   box-shadow: 1px 1px 1px #83817a; }
-  .allpages__borderContainer___8tOIs .allpages__divider___2IdQ0 {
+  .allpages__borderContainer___7rciL .allpages__divider___Ug-Xd {
     margin-top: 100px;
     margin-bottom: 100px; }
-  .allpages__borderContainer___8tOIs .allpages__big___YKIqD {
+  .allpages__borderContainer___7rciL .allpages__big___1Zmwk {
     font-size: 30px;
     text-indent: 0px;
     text-align: left;
     margin-bottom: 20px;
     text-decoration-line: underline; }
-  .allpages__borderContainer___8tOIs .allpages__descriptor___3l2nE {
+  .allpages__borderContainer___7rciL .allpages__descriptor___19ksN {
     text-align: left;
     text-indent: 20px;
     font-size: 20px; }
-.banner__banner___1sE58 {
+.banner__banner___3VTf_ {
   background-color: #FAF5E3;
   margin-bottom: 50px;
   width: 100%;
   height: 25%;
   text-align: center;
   display: table; }
-  .banner__banner___1sE58 p {
+  .banner__banner___3VTf_ p {
     font-family: 'Ubuntu';
     font-size: 50px;
     display: table-cell;
     vertical-align: middle; }
-.login__login___3BBt3 {
+.login__login___1HNMz {
   font-family: "Ubuntu", sans-serif;
   padding-top: 50px; }
-.register__register___3UeHI {
+.register__register___2BAbX {
   font-family: "Ubuntu", sans-serif;
   padding-top: 50px; }

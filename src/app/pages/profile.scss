@@ -1,4 +1,21 @@
+@import 'palette';
+
 .profile {
     margin-top: 50px;
     padding-top: 50px;
+
+    & .left {
+        float: left;
+        width: 20%;
+    }
+
+    & .right {
+        float: right;
+        width: 80%;
+    }
+
+    & .divider {
+        width: 2px;
+        background-color: $color3;
+    }
 }

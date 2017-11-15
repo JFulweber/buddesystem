@@ -8,9 +8,13 @@ export default class Profile extends React.Component {
         return (
             <div className={styles.profile}>
                 <div className={astyles.borderContainer}>
-                    <p> left? </p>
-                    <hr className={astyles.verticaldivide}/>
-                    <p> right? </p>
+                    <div className={styles.left}>
+                        <p> Left? </p>
+                    </div>
+                    <div className = {styles.divider}></div>
+                    <div className={styles.right}>
+                        <p> Right </p>
+                    </div>
                 </div>
             </div>
         )

@@ -55,6 +55,8 @@
   padding-right: 20px;
   margin: auto;
   width: 80%;
+  height: auto;
+  min-height: 25%;
   border-style: double;
   border-width: 1px;
   border-radius: 5px;
@@ -92,6 +94,18 @@
 .register__register___2BAbX {
   font-family: "Ubuntu", sans-serif;
   padding-top: 50px; }
+/* Coolors Exported Palette - coolors.co/faf5e3-db5461-686963-8aa29e-696d7d */
+/* HSL */
+/* RGB */
 .profile__profile___1moin {
   margin-top: 50px;
   padding-top: 50px; }
+  .profile__profile___1moin .profile__left___2U5M- {
+    float: left;
+    width: 20%; }
+  .profile__profile___1moin .profile__right___296xP {
+    float: right;
+    width: 80%; }
+  .profile__profile___1moin .profile__divider___gghWQ {
+    width: 2px;
+    background-color: #686963; }

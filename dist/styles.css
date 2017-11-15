@@ -39,15 +39,15 @@
   width: 100%;
   background: linear-gradient(135deg, #696D7D 22px, #FAF5E3 22px, #FAF5E3 24px, transparent 24px, transparent 67px, #FAF5E3 67px, #FAF5E3 69px, transparent 69px), linear-gradient(225deg, #696D7D 22px, #FAF5E3 22px, #FAF5E3 24px, transparent 24px, transparent 67px, #FAF5E3 67px, #FAF5E3 69px, transparent 69px) 0 64px;
   background-color: #696D7D;
-  background-size: 64px 128px;
-  padding-bottom: 100px; }
+  background-size: 64px 128px; }
 .homepage__homepage___PVkGi {
   font-family: 'Ubuntu', sans-serif;
   width: 100%;
+  min-height: 35%;
+  height: auto;
   margin: 0px;
   padding: 0px;
-  padding-bottom: 50px;
-  margin-bottom: 50px;
+  padding-bottom: 100px;
   position: relative; }
 .allpages__borderContainer___7rciL {
   margin-bottom: 50px;
@@ -80,7 +80,7 @@
   background-color: #FAF5E3;
   margin-bottom: 50px;
   width: 100%;
-  height: 60%;
+  height: 65%;
   text-align: center;
   display: table; }
   .banner__banner___3VTf_ p {
@@ -103,9 +103,12 @@
   .profile__profile___1moin .profile__left___2U5M- {
     float: left;
     width: 20%; }
+    .profile__profile___1moin .profile__left___2U5M- :after {
+      content: "";
+      background-color: #db5461;
+      width: 2px;
+      height: 20%;
+      margin-left: 95%; }
   .profile__profile___1moin .profile__right___296xP {
     float: right;
     width: 80%; }
-  .profile__profile___1moin .profile__divider___gghWQ {
-    width: 2px;
-    background-color: #686963; }

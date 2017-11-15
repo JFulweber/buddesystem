@@ -7,15 +7,17 @@
     & .left {
         float: left;
         width: 20%;
+        & :after {
+            content: "";
+            background-color:$color2;
+            width: 2px;
+            height: 20%;
+            margin-left: 95%;
+        }
     }
 
     & .right {
         float: right;
         width: 80%;
-    }
-
-    & .divider {
-        width: 2px;
-        background-color: $color3;
     }
 }

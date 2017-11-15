@@ -11,7 +11,6 @@ export default class Profile extends React.Component {
                     <div className={styles.left}>
                         <p> Left? </p>
                     </div>
-                    <div className = {styles.divider}></div>
                     <div className={styles.right}>
                         <p> Right </p>
                     </div>

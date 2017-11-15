@@ -1,23 +1,58 @@
 @import 'palette';
 
 .profile {
-    margin-top: 50px;
-    padding-top: 50px;
+    width: 100%;
+    min-height: 50%;
+    height: auto;
+    display: table;
+    border-spacing: 20px;
 
     & .left {
+        display: table-cell;
         float: left;
-        width: 20%;
-        & :after {
-            content: "";
-            background-color:$color2;
-            width: 2px;
-            height: 20%;
-            margin-left: 95%;
-        }
+        width: 80%;
     }
 
     & .right {
+        display: table-cell;
         float: right;
-        width: 80%;
+        width: 20%;
     }
+
+    & .bio {
+        margin-bottom: 15px;
+        display: table-row;
+
+        img {
+            display: table-cell;
+            width: 100%;
+            float: left;
+            border-radius: 50%;
+            transform: scaleZ(5);
+            transition: transform 5s ease-in-out;
+            &:hover {
+                transform: rotateX(360deg)
+            }
+        }
+
+        p {
+            display: table-cell;
+            width: 90%;
+            float: right;
+        }
+        height: 20%;
+
+        & .left {
+            display: table-cell;
+            float: left;
+            width: 20%;
+        }
+
+        & .right {
+            display: table-cell;
+            float: right;
+            width: 80%;
+        }
+    }
+    
 }

@@ -17,6 +17,7 @@ export default class MasterLayout extends React.Component {
                     </NavBar>
                 </div>
                 <div id="body" className={styles.body}>
+                <div style={{height:"50px"}}></div>
                     {this.props.children}
                 </div>
             </div>

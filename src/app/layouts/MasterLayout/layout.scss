@@ -10,11 +10,13 @@
 
 .body{
     margin: 50px auto 0;
-    height: 100%;
+    min-height: 100%;
+    height: auto;
     width: 100%;
     background:
-linear-gradient(135deg, #696D7D 22px, #FAF5E3 22px, #FAF5E3 24px, transparent 24px, transparent 67px, #FAF5E3 67px, #FAF5E3 69px, transparent 69px),
-linear-gradient(225deg, #696D7D 22px, #FAF5E3 22px, #FAF5E3 24px, transparent 24px, transparent 67px, #FAF5E3 67px, #FAF5E3 69px, transparent 69px)0 64px;
-background-color:#696D7D;
-background-size: 64px 128px
+        linear-gradient(135deg, #696D7D 22px, #FAF5E3 22px, #FAF5E3 24px, transparent 24px, transparent 67px, #FAF5E3 67px, #FAF5E3 69px, transparent 69px),
+        linear-gradient(225deg, #696D7D 22px, #FAF5E3 22px, #FAF5E3 24px, transparent 24px, transparent 67px, #FAF5E3 67px, #FAF5E3 69px, transparent 69px)0 64px;
+    background-color:#696D7D;
+    background-size: 64px 128px;
+    padding-bottom: 100px; 
 }

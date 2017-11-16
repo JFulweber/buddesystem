@@ -12,6 +12,7 @@
         height: 100%;
         float: left;
         a {
+            transition: ease-in-out .2s color;
             display: block;
             font-family: "Ubuntu";
             color: rgb(61, 61, 61);
@@ -22,6 +23,9 @@
         }
         &:hover{
             background-color: rgb(167, 65, 75);
+            a {
+                color: white;
+            }
         }      
         &:last-child{
             float:right;  

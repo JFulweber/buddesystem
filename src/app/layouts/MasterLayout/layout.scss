@@ -9,10 +9,11 @@
 }
 
 .body{
+    display: block;
     font-family: "Ubuntu", sans-serif;
     margin: auto;
-    min-height: 100%;
-    height: auto;
+    height: auto;    
+    min-height: 100vh;
     width: 100%;
     background:
         linear-gradient(135deg, #696D7D 22px, #FAF5E3 22px, #FAF5E3 24px, transparent 24px, transparent 67px, #FAF5E3 67px, #FAF5E3 69px, transparent 69px),

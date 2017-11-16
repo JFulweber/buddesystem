@@ -114,7 +114,6 @@ server.get('/db', function (req, res) {
 })
 
 server.get('/adduserdb', function (req, res) {
-    if (err) throw err;
     var mUser = new User({
         username: req.query.username,
         email: req.query.email,

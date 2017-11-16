@@ -7,7 +7,7 @@ import navstyles from '../../components/NavBar/navbar.scss';
 export default class MasterLayout extends React.Component {
     render() {
         return (
-            <div id="whole" >
+            <div id="whole" style={{overflowY:"hidden"}}>
                 <title> {this.props.title} </title>
                 <div id="header" className={styles.header}>
                     <NavBar>

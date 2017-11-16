@@ -1,12 +1,12 @@
 import React from 'react';
-import rstyles from './register.scss';
-import sstyles from './allpages.scss';
+import styles from './register.scss';
+import {BorderContainer} from '../components/UI';
 
 export default class Register extends React.Component {
     render() {
         return (
-            <div id="register" className={rstyles.register}>
-                <div className={sstyles.borderContainer}>
+            <div id="register" className={styles.register}>
+                <BorderContainer>
                     <form>
                         <p> First Name </p>
                         <input placeholder="John" type="text" />
@@ -20,7 +20,7 @@ export default class Register extends React.Component {
                         <p></p>
                         <input type="submit" value="Register!" placeholder="Register!"/>
                     </form>
-                </div>
+                </BorderContainer>
             </div>
         )
     }

@@ -1,15 +1,15 @@
-.navbar__navbar___3dtQM ul {
+.navbar__navbar___1SGJv ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%; }
 
-.navbar__navbar___3dtQM li {
+.navbar__navbar___1SGJv li {
   transition: ease-in-out .2s background-color;
   height: 100%;
   float: left; }
-  .navbar__navbar___3dtQM li a {
+  .navbar__navbar___1SGJv li a {
     transition: ease-in-out .2s color;
     display: block;
     font-family: "Ubuntu";
@@ -18,15 +18,15 @@
     padding: 14px 16px;
     text-decoration: none;
     border: 0px; }
-  .navbar__navbar___3dtQM li:hover {
+  .navbar__navbar___1SGJv li:hover {
     background-color: #a7414b; }
-    .navbar__navbar___3dtQM li:hover a {
+    .navbar__navbar___1SGJv li:hover a {
       color: white; }
-  .navbar__navbar___3dtQM li:last-child {
+  .navbar__navbar___1SGJv li:last-child {
     float: right; }
-  .navbar__navbar___3dtQM li .navbar__active___cTVWa {
+  .navbar__navbar___1SGJv li .navbar__active___2dEb1 {
     border: 5px; }
-.layout__header___2lhv9 {
+.layout__header___2Mr3M {
   width: 100%;
   background-color: #DB5461;
   height: 50px;
@@ -36,7 +36,7 @@
   overflow: hidden;
   z-index: 999; }
 
-.layout__body___26l0X {
+.layout__body___3c8YO {
   display: block;
   font-family: "Ubuntu", sans-serif;
   overflow-y: auto;
@@ -47,7 +47,19 @@
   background: linear-gradient(135deg, #696D7D 22px, #FAF5E3 22px, #FAF5E3 24px, transparent 24px, transparent 67px, #FAF5E3 67px, #FAF5E3 69px, transparent 69px), linear-gradient(225deg, #696D7D 22px, #FAF5E3 22px, #FAF5E3 24px, transparent 24px, transparent 67px, #FAF5E3 67px, #FAF5E3 69px, transparent 69px) 0 64px;
   background-color: #696D7D;
   background-size: 64px 128px; }
-.homepage__homepage___PVkGi {
+
+.layout__body2___2PnW1 {
+  display: block;
+  font-family: "Ubuntu", sans-serif;
+  overflow-y: auto;
+  margin: auto;
+  height: auto;
+  min-height: 100vh;
+  max-width: 100%;
+  background: linear-gradient(135deg, #db5461 22px, #FAF5E3 22px, #FAF5E3 24px, transparent 24px, transparent 67px, #FAF5E3 67px, #FAF5E3 69px, transparent 69px), linear-gradient(225deg, #db5461 22px, #FAF5E3 22px, #FAF5E3 24px, transparent 24px, transparent 67px, #FAF5E3 67px, #FAF5E3 69px, transparent 69px) 0 64px;
+  background-color: #696D7D;
+  background-size: 64px 128px; }
+.homepage__homepage___1JcmJ {
   font-family: 'Ubuntu', sans-serif;
   width: 100%;
   min-height: 15%;
@@ -56,19 +68,19 @@
   padding: 0px;
   padding-bottom: 100px;
   position: relative; }
-.banner__banner___3VTf_ {
+.banner__banner___1sE58 {
   background-color: #FAF5E3;
   margin-bottom: 50px;
   width: 100%;
   height: 85%;
   text-align: center;
   display: table; }
-  .banner__banner___3VTf_ p {
+  .banner__banner___1sE58 p {
     font-family: 'Ubuntu';
     font-size: 50px;
     display: table-cell;
     vertical-align: middle; }
-.used__borderContainer___1nRTp {
+.used__borderContainer___1Cu0S {
   margin-bottom: 50px;
   padding-left: 20px;
   padding-right: 20px;
@@ -83,69 +95,69 @@
   border-color: #818f8c;
   background-color: #8AA29E;
   box-shadow: 1px 1px 1px #83817a; }
-  .used__borderContainer___1nRTp .used__divider___KvlRs {
+  .used__borderContainer___1Cu0S .used__divider___3EnZ7 {
     margin-top: 100px;
     margin-bottom: 100px; }
-  .used__borderContainer___1nRTp .used__big___1iGHQ {
+  .used__borderContainer___1Cu0S .used__big___2yyUz {
     font-size: 30px;
     text-indent: 0px;
     text-align: left;
     margin-bottom: 20px;
     text-decoration-line: underline; }
-  .used__borderContainer___1nRTp .used__descriptor___2QR2H {
+  .used__borderContainer___1Cu0S .used__descriptor___n-uOH {
     text-align: left;
     text-indent: 20px;
     font-size: 20px; }
-.login__login___1HNMz {
+.login__login___3BBt3 {
   font-family: "Ubuntu", sans-serif;
   padding-top: 50px; }
-.register__register___2BAbX {
+.register__register___3UeHI {
   font-family: "Ubuntu", sans-serif;
   padding-top: 50px; }
 /* Coolors Exported Palette - coolors.co/faf5e3-db5461-686963-8aa29e-696d7d */
 /* HSL */
 /* RGB */
-.profile__profile___1moin {
+.profile__profile___2HE6Q {
   width: 100%;
   min-height: 50%;
   height: auto;
   display: table;
   border-spacing: 20px; }
-  .profile__profile___1moin .profile__left___2U5M- {
+  .profile__profile___2HE6Q .profile__left___1gmoP {
     display: table-cell;
     float: left;
     width: 80%; }
-  .profile__profile___1moin .profile__right___296xP {
+  .profile__profile___2HE6Q .profile__right___3IoP4 {
     display: table-cell;
     float: right;
     width: 20%; }
-  .profile__profile___1moin .profile__bio___3hp7N {
+  .profile__profile___2HE6Q .profile__bio___1O1Pd {
     margin-bottom: 15px;
     display: table-row;
     height: 20%; }
-    .profile__profile___1moin .profile__bio___3hp7N img {
+    .profile__profile___2HE6Q .profile__bio___1O1Pd img {
       display: table-cell;
       width: 100%;
       max-width: 100%;
       float: left;
       border-radius: 50%;
       transition: transform 1s ease-in-out; }
-      .profile__profile___1moin .profile__bio___3hp7N img:hover {
+      .profile__profile___2HE6Q .profile__bio___1O1Pd img:hover {
         transform: translateY(-10px); }
-    .profile__profile___1moin .profile__bio___3hp7N p {
+    .profile__profile___2HE6Q .profile__bio___1O1Pd p {
       display: table-cell;
       width: 90%;
       float: right; }
-    .profile__profile___1moin .profile__bio___3hp7N .profile__left___2U5M- {
+    .profile__profile___2HE6Q .profile__bio___1O1Pd .profile__left___1gmoP {
       display: table-cell;
       float: left;
       width: 20%; }
-    .profile__profile___1moin .profile__bio___3hp7N .profile__right___296xP {
+    .profile__profile___2HE6Q .profile__bio___1O1Pd .profile__right___3IoP4 {
       display: table-cell;
       float: right;
       width: 80%;
       max-width: 80%; }
-.allpages__borderContainer___7rciL {
+.allpages__borderContainer___8tOIs {
   margin-bottom: 50px;
   padding-left: 20px;
   padding-right: 20px;
@@ -160,16 +172,16 @@
   border-color: #818f8c;
   background-color: #8AA29E;
   box-shadow: 1px 1px 1px #83817a; }
-  .allpages__borderContainer___7rciL .allpages__divider___Ug-Xd {
+  .allpages__borderContainer___8tOIs .allpages__divider___2IdQ0 {
     margin-top: 100px;
     margin-bottom: 100px; }
-  .allpages__borderContainer___7rciL .allpages__big___1Zmwk {
+  .allpages__borderContainer___8tOIs .allpages__big___YKIqD {
     font-size: 30px;
     text-indent: 0px;
     text-align: left;
     margin-bottom: 20px;
     text-decoration-line: underline; }
-  .allpages__borderContainer___7rciL .allpages__descriptor___19ksN {
+  .allpages__borderContainer___8tOIs .allpages__descriptor___3l2nE {
     text-align: left;
     text-indent: 20px;
     font-size: 20px; }

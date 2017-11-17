@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from './profile.scss';
 import astyles from './allpages.scss';
+import {BorderContainer} from '../components/UI';
 
 export default class Profile extends React.Component {
     render() {
         console.log(styles.profile);
         console.log(this.props);
         return (
-            <div className={astyles.borderContainer}>
+            <BorderContainer>
                 <div className={styles.profile}>
                     <div className={styles.bio}>
                         <div className={styles.left}>
@@ -25,7 +26,7 @@ export default class Profile extends React.Component {
                         <p> My interests and other data here will be enumerated by graphql calls to be implemented...</p>
                     </div>
                 </div>
-            </div>
+            </BorderContainer>
         )
     }
 }

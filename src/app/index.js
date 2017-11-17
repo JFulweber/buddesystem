@@ -8,6 +8,7 @@ import Login from './pages/login.jsx';
 import Register from './pages/register.jsx';
 import Profile from './pages/profile.jsx';
 import EditPage from './pages/editprofile.jsx';
+import Page404 from './pages/404Page.jsx';
 
 ReactDOM.render(
     (
@@ -19,6 +20,8 @@ ReactDOM.render(
                     <Route path="/register" component={Register}/>
                     <Route path="/profile/:name/" component={Profile}/>
                     <Route exact path="/editprofile" component={EditPage}/>
+                    <Route exact path="/404" component={Page404}/>
+                    <Route component={Page404}/>
                 </Switch>
             </BrowserRouter>
         </MasterLayout>

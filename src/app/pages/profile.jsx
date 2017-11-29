@@ -3,10 +3,39 @@ import styles from './profile.scss';
 import astyles from './allpages.scss';
 import {BorderContainer} from '../components/UI';
 
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
+
+
+function ProfilePage(){
+    console.log(this.data)
+    return(
+        <p>{user.email}</p>
+    )
+}
+
 export default class Profile extends React.Component {
+
+    componentDidMount(){
+        var username = this.props.match.params.name
+
+        var query = gql`query{
+            user(username:$username){
+                email
+            }
+        }`
+
+        const test = graphql(query, {
+            options:{
+                variables: {
+                    username: username
+                }
+            }
+        },ProfilePage);
+        console.log(test);
+    }
+
     render() {
-        console.log(styles.profile);
-        console.log(this.props);
         return (
             <BorderContainer>
                 <div className={styles.profile}>

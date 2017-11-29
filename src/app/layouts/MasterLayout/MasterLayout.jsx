@@ -4,11 +4,25 @@ import NavBarItem from '../../components/NavBar/NavBarItem.jsx';
 import styles from './layout.scss';
 import navstyles from '../../components/NavBar/navbar.scss';
 
-export default class MasterLayout extends React.Component {
+import {ApolloClient} from 'apollo-client'
+import { HttpLink } from 'apollo-link-http';
+import { graphql } from 'react-apollo';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { request } from 'graphql-request'
+import gql from 'graphql-tag';
 
+const MY_QUERY = gql`
+    query{
+        users{
+            email
+        }
+    }`;
+
+export default class MasterLayout extends React.Component {
+    
     constructor(props) {
         super(props)
-
+        
         // Bind the this context to the handler function
         this.handler = this.handler.bind(this);
 
@@ -16,6 +30,7 @@ export default class MasterLayout extends React.Component {
         this.state = {
             messageShown: false
         };
+       // var wUserData = graphql(MY_QUERY,{options: {notifyOnNetworkStatusChanged: true}})(Text)
     }
 
     // This method will be sent to the child component
@@ -32,7 +47,6 @@ export default class MasterLayout extends React.Component {
                 React.cloneElement(child, {
                     action: this.handler
                 });
-                console.log(child);
             }
         );
         var style = styles.body;

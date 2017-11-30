@@ -8,6 +8,7 @@
         _id: ID!
         username: String!,
         email: String!,
+        bio: String,
         joined: String,
         interests: [String],
         groups: [Group]
@@ -23,4 +24,5 @@
         addUser(new_user:UserInput!): Boolean!
         joinGroup(email:String!, groupId: ID!): Boolean!
         interestedInEvent(userId:ID! eventID:ID!): Boolean!
+        setBio(userId: ID!, bio:String!): Boolean!
     }

@@ -7,7 +7,8 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 
-function ProfilePage(){
+function ProfilePage({data}){
+    console.log('HEWWO????')
     console.log(this.data)
     return(
         <p>{user.email}</p>
@@ -15,26 +16,6 @@ function ProfilePage(){
 }
 
 export default class Profile extends React.Component {
-
-    componentDidMount(){
-        var username = this.props.match.params.name
-
-        var query = gql`query{
-            user(username:$username){
-                email
-            }
-        }`
-
-        const test = graphql(query, {
-            options:{
-                variables: {
-                    username: username
-                }
-            }
-        },ProfilePage);
-        console.log(test);
-    }
-
     render() {
         return (
             <BorderContainer>
@@ -59,3 +40,12 @@ export default class Profile extends React.Component {
         )
     }
 }
+
+var query = gql`query{
+    user(username:"test"){
+        email
+    }
+}`
+
+const test = graphql(query)(ProfilePage);
+console.log(test);

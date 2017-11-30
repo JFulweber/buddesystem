@@ -9,6 +9,7 @@ import Register from './pages/register.jsx';
 import Profile from './pages/profile.jsx';
 import EditPage from './pages/editprofile.jsx';
 import Page404 from './pages/404Page.jsx';
+import graphqltest from './pages/graphqltest.jsx';
 
 import { ApolloProvider } from 'react-apollo';
 import { ApolloClient } from 'apollo-client';
@@ -18,7 +19,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 const client = new ApolloClient({
     // By default, this client will send queries to the
     //  `/graphql` endpoint on the same host
-    link: new HttpLink({ uri: "localhost:3000" }),
+    link: new HttpLink({ uri: "http://localhost:3000/graphql" }),
     cache: new InMemoryCache()
 });
 
@@ -29,6 +30,7 @@ ReactDOM.render(
                 <BrowserRouter>
                     <Switch>
                         <Route exact path="/" component={HomePage} />
+                        <Route path="/test" component={graphqltest}/>
                         <Route path="/login" component={Login} />
                         <Route path="/register" component={Register} />
                         <Route path="/profile/:name/" component={Profile} />

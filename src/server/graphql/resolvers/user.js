@@ -28,6 +28,14 @@ var resolvers = {
                 });
             });
         },
+        setBio: async function (parent, args, {User}){
+            return await new Promise((resolve,reject)=>{
+                User.findById(args.userId).then((user)=>{
+                    user.bio = args.bio;
+                    user.save().then(()=> resolve(true));
+                });  
+            })
+        },
         joinGroup: async function (parent, args, {User, Group}){
             return await new Promise((resolve,reject)=>{
                 Group.findById(args.groupId).then((group)=>{

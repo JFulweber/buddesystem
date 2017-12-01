@@ -1,4 +1,5 @@
 import React from 'react';
+import astyles from './allpages.scss';
 
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -6,6 +7,7 @@ import gql from 'graphql-tag';
 const ALL_USER_QUERY = gql`query{
         users{
             email
+            username
         }
     }`
 
@@ -22,11 +24,16 @@ class TestPage extends React.Component {
             )
         }
         console.log(this.props.data)
-        return (
-            <div id="graphql render">
-                <p> hewwo im fwom gwaphqyuel! haiii :3 </p>
-            </div>
-        )
+        return this.props.data.users.map(u => {
+            if (u.email == null || u.username == null) return;
+            return (
+                <div className={astyles.borderContainer}>
+                    <p> This user's email: {u.email} </p>
+                    <p> This user's username: {u.username} </p>
+                    <p> This user's bio (if applicable): {u.bio} </p>
+                </div>
+            )
+        })
     }
 }
 

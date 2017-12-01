@@ -6,13 +6,13 @@
 
     type User {
         _id: ID!
-        username: String!,
-        email: String!,
+        username: String,
+        email: String,
         bio: String,
         joined: String,
         interests: [String],
-        groups: [Group]
-        friends: [User]
+        groups: [Group],
+        friends: [User],
     }
 
     input UserInput {

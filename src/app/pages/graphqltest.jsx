@@ -14,16 +14,14 @@ const ALL_USER_QUERY = gql`query{
 class TestPage extends React.Component {
     render() {
         if (this.props.data.loading) {
-            console.log('loading!!!');
             return (
-                <div id="loading">
+                <div id="gql_loading">
                     <div>
                         Loading fwom gwaphql endpoint!
                     </div>
                 </div>
             )
         }
-        console.log(this.props.data)
         return this.props.data.users.map(u => {
             if (u.email == null || u.username == null) return;
             return (

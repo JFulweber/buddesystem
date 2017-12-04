@@ -1,0 +1,8 @@
+type Session{
+    userId: ID!,
+    webToken: String!
+}
+
+type Query{
+    validateToken(webToken: String!):Boolean!
+}

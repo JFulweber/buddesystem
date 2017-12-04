@@ -5,18 +5,16 @@ import {BorderContainer} from '../components/UI';
 
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-
+import {getApp} from '../app.jsx'
 
 function ProfilePage({data}){
-    console.log('HEWWO????')
-    console.log(this.data)
-    return(
-        <p>{user.email}</p>
-    )
+
+    
 }
 
 export default class Profile extends React.Component {
     render() {
+       // console.log(getApp())
         return (
             <BorderContainer>
                 <div className={styles.profile}>

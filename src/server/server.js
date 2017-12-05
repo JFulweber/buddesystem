@@ -51,14 +51,25 @@ mongodb_process.on('close', (code) => {
 //#region express_setup
 var express = require('express');
 var session = require('express-session')
-var MongoStore = require('connect-mongo')(session);
+var mongosess = require('express-sessions')
 
 var server = express();
 
 const PORT = 3000;
 
 server.use(express.static('./dist'));
-
+server.use(session({
+    secret: "pleasedontguessme",
+    resave:true,
+    saveUninitialized:true,
+    store: new mongosess({
+        storage: 'mongodb',
+        instance: mongoose
+    }),
+    cookie:{
+        maxAge:30*60*1000
+    }
+}))
 
 //#endregion express_setup
 
@@ -75,26 +86,8 @@ import typeDefs from './graphql/typeDefs';
 import resolvers from './graphql/resolvers';
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017');
+mongoose.connect('localhost:27017');
 
-server.use(require('cookie-parser'));
-server.use(session({
-    secret:'longsecrionpleasedontguessmeyoullruinmyintegrityinitsentirety',
-    /* store: new (require('express-sessions'))({
-        storage: 'mongodb',
-        instance: mongoose, // optional 
-        host: 'localhost', // optional 
-        port: 27017, // optional 
-        db: 'db', // optional 
-        collection: 'sessions', // optional 
-        expire: 86400 // optional 
-    }), */
-    resave: true,
-    saveUninitialized: true,
-    cookie: {
-        maxAge: 30 * 60 * 1000
-    }
-}))
 
 
 var UserSchema = require('./mongo/schemas/user');
@@ -151,6 +144,7 @@ server.get('/adduserdb', function (req, res) {
 var path = require('path');
 
 server.get('/*', function(req,res){
+    console.log(req.session)
     res.sendFile(path.resolve(__dirname,'../../dist/index.html'));
 });
 

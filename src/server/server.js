@@ -50,12 +50,15 @@ mongodb_process.on('close', (code) => {
 
 //#region express_setup
 var express = require('express');
+var session = require('express-session')
+var MongoStore = require('connect-mongo')(session);
 
 var server = express();
 
 const PORT = 3000;
 
 server.use(express.static('./dist'));
+
 
 //#endregion express_setup
 
@@ -72,7 +75,27 @@ import typeDefs from './graphql/typeDefs';
 import resolvers from './graphql/resolvers';
 
 var mongoose = require('mongoose');
-mongoose.connect('localhost:27017');
+mongoose.connect('mongodb://localhost:27017');
+
+server.use(require('cookie-parser'));
+server.use(session({
+    secret:'longsecrionpleasedontguessmeyoullruinmyintegrityinitsentirety',
+    /* store: new (require('express-sessions'))({
+        storage: 'mongodb',
+        instance: mongoose, // optional 
+        host: 'localhost', // optional 
+        port: 27017, // optional 
+        db: 'db', // optional 
+        collection: 'sessions', // optional 
+        expire: 86400 // optional 
+    }), */
+    resave: true,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 30 * 60 * 1000
+    }
+}))
+
 
 var UserSchema = require('./mongo/schemas/user');
 var LoginSchema = require('./mongo/schemas/login');
@@ -100,6 +123,8 @@ server.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 HOST MONGODB DATABASE ON WEBSITE
 */
 
+
+
 server.get('/db', function (req, res) {
     var _send = "<p style=\"font-size:25\"> Go to <a href=/adduser.html>add user</a> to add a user!</p>";
     var stack = {};
@@ -109,7 +134,6 @@ server.get('/db', function (req, res) {
             _send += `<p>User ${result.length}: username: ${pop.username}, email: ${pop.email} and join date of: ${pop.joined} in the database</p>`;
         }
         res.send(_send);
-        mongoose.disconnect();
     });
 })
 

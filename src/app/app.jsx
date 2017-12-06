@@ -6,7 +6,7 @@ import MasterLayout from './layouts/MasterLayout/MasterLayout.jsx';
 import HomePage from './pages/HomePage.jsx';
 import Login from './pages/login.jsx';
 import Register from './pages/register.jsx';
-import Profile from './pages/profile.jsx';
+import {EmptyProfile} from './pages/profile.jsx';
 import EditPage from './pages/editprofile.jsx';
 import Page404 from './pages/404Page.jsx';
 import graphqltest from './pages/graphqltest.jsx';
@@ -24,11 +24,6 @@ const client = new ApolloClient({
 });
 
 class App extends React.Component {
-    getApp() {
-        console.log("get app working idk")
-        return this;
-    }
-
     render() {
         return (
             <ApolloProvider client={client}>
@@ -39,7 +34,7 @@ class App extends React.Component {
                             <Route path="/test" component={graphqltest} />
                             <Route path="/login" component={Login} />
                             <Route path="/register" component={Register} />
-                            <Route path="/profile/:name/" component={Profile} />
+                            <Route path="/profile/:name/" component={EmptyProfile} />
                             <Route exact path="/editprofile" component={EditPage} />
                             <Route exact path="/404" component={Page404} />
                             <Route component={Page404} />

@@ -5,16 +5,45 @@ import {BorderContainer} from '../components/UI';
 
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import {getApp} from '../app.jsx'
 
-function ProfilePage({data}){
-
-    
+class EmptyProfile extends React.Component{
+    render(){
+        console.log(this.props.match.params.name)
+        var query = gql`query($username:String!){
+            user(username:$username){
+                username
+                bio
+                email
+                interests
+                groups{
+                    name
+                }
+            }
+        }`
+        const FilledProfile = graphql(query, {
+            options: {
+                variables: {
+                    username: this.props.match.params.name
+                }
+            }
+        })(Profile);
+        return <FilledProfile/>;
+    }
 }
 
-export default class Profile extends React.Component {
+class Profile extends React.Component {
     render() {
-       // console.log(getApp())
+        if(this.props.data.loading){
+            return <p> Loading... </p>
+        }
+        if(this.props.data.user.username===null){
+            return (
+                <BorderContainer>
+                    <p> This user does not exist or there was an error. Please make sure their username is correct. </p>
+                </BorderContainer>
+            )
+        }
+        console.log(this.props.data)
         return (
             <BorderContainer>
                 <div className={styles.profile}>
@@ -23,27 +52,29 @@ export default class Profile extends React.Component {
                             <img src="https://i.pinimg.com/736x/c2/7c/2e/c27c2e676900537b5b7a1bcf936097f1--animated-smiley-faces-smiley-face-images.jpg"/>
                         </div>
                         <div className={[styles.right].join()}>
-                            <p> My username is {this.props.match.params.name}</p>
-                            <p> Sample text. Everyone is a Mr. Smiley Man, and everyone has this as their bio. This is to be populated by GraphQL queries, but is not yet implemented as per my schedule. thanks bro</p>
+                            <p> My username is {this.props.data.user.username}.</p>
+                            {this.getBio()}
                         </div>
                     </div>
                     <div className={styles.left}>
-                        <p> My friends, comments, posts, etc. will be enumerated here by graphql calls to be implemented... </p>
+                        <p> User has not added any friends! Why not chat with them? </p>
                     </div>
                     <div className={styles.right}>
-                        <p> My interests and other data here will be enumerated by graphql calls to be implemented...</p>
+                        <p> User has not marked any interests. Let them know to do so!</p>
                     </div>
                 </div>
             </BorderContainer>
         )
     }
+
+    getBio(){
+        if(this.props.data.bio == null){
+            return <p> This user has not set their bio. </p>
+        }
+        else{
+            return <p> {this.props.data.bio} </p>
+        }
+    }
 }
 
-var query = gql`query{
-    user(username:"test"){
-        email
-    }
-}`
-
-const test = graphql(query)(ProfilePage);
-console.log(test);
+export {Profile, EmptyProfile}

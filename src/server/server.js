@@ -144,7 +144,6 @@ server.get('/adduserdb', function (req, res) {
 var path = require('path');
 
 server.get('/*', function(req,res){
-    console.log(req.session)
     res.sendFile(path.resolve(__dirname,'../../dist/index.html'));
 });
 

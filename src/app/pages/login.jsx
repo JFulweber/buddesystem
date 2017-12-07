@@ -1,37 +1,57 @@
 import React from 'react';
 import styles from './login.scss';
 import BorderContainer from '../components/UI/BorderContainer.jsx';
-import {graphql} from 'graphql-tag'
+
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
 export default class Login extends React.Component{
 
     constructor(props){
         super(props);
-        this.state = {};
-        this.state.email = '';
-        this.state.pass = '';
+        this.state = {
+            email:'blank@blank.com',
+            pass:'qwert123adminadminadmin'
+        };
 
         this.emailChange = this.emailChange.bind(this);
         this.passChange = this.passChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     emailChange(event){
-        console.log("event!");
-        console.log(event)
+        console.log(this.state);
         this.setState({email:event.target.value})
     }
 
     passChange(event){
+        console.log(this.state)
         this.setState({pass:event.target.value});
         //console.log(this.state.pass.replace(/.*/g,'*'))
     }
 
-    handleSubmit(){
+    submitButton(event){
+        console.log(this.state);
+    }
+
+    handleSubmit(event){
+        event.preventDefault();
+        console.log(this.state)
         var query = gql`query{
             validateLogin(email: $email, password: $pass)
         }`
-        this.props.resp = graphql(query)(OnLogin)
+        const resp = graphql(query, {
+            options:{
+                variables: {
+                    email: this.state.email,
+                    password: this.state.pass 
+                }
+            }
+        })(this);
+        console.log(this.props.data);
     }
+
+    
 
     render(){
         return(

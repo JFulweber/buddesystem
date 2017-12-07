@@ -59,8 +59,8 @@ export default class MasterLayout extends React.Component {
                 <div id="header" className={styles.header}>
                     <NavBar>
                         <NavBarItem name="Home" link="/" />
-                        <NavBarItem name="Register" link="register" float="right" />
-                        <NavBarItem name="Login" link="login" />
+                        <NavBarItem name="Register" link="/register" float="right" />
+                        <NavBarItem name="Login" link="/login" />
                     </NavBar>
                 </div>
                 <div id="body" className={styles.body}>

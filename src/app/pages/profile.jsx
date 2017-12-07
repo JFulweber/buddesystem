@@ -36,14 +36,13 @@ class Profile extends React.Component {
         if(this.props.data.loading){
             return <p> Loading... </p>
         }
-        if(this.props.data.user.username===null){
+        if(this.props.data.user===null || this.props.data.user===undefined){
             return (
                 <BorderContainer>
                     <p> This user does not exist or there was an error. Please make sure their username is correct. </p>
                 </BorderContainer>
             )
         }
-        console.log(this.props.data)
         return (
             <BorderContainer>
                 <div className={styles.profile}>

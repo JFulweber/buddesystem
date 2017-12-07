@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './login.scss';
 import BorderContainer from '../components/UI/BorderContainer.jsx';
+import {graphql} from 'graphql-tag'
 
 export default class Login extends React.Component{
 
@@ -26,6 +27,10 @@ export default class Login extends React.Component{
     }
 
     handleSubmit(){
+        var query = gql`query{
+            validateLogin(email: $email, password: $pass)
+        }`
+        this.props.resp = graphql(query)(OnLogin)
     }
 
     render(){
@@ -42,5 +47,19 @@ export default class Login extends React.Component{
                 </BorderContainer>
             </div>
         )
+    }
+}
+
+class OnLogin extends React.Component{
+    render(){
+        if(this.props.data.validateLogin==true){
+            return(
+                <p> Login Successful </p>
+            )
+        }
+        else{
+            console.log(this.props.data);
+            return <p> Login Unsuccessful (wrong username/pass) </p>
+        }
     }
 }

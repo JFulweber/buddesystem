@@ -17,7 +17,8 @@
 
     input UserInput {
         username: String!,
-        email: String!
+        email: String!,
+        password: String!
     }
 
     type Mutation {

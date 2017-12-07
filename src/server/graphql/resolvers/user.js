@@ -19,10 +19,12 @@ var resolvers = {
         }
     },
     Mutation: {
-        addUser: async function (parent, args, { User }) {
+        addUser: async function (parent, args, { User, Login }) {
             return await new Promise((resolve, reject) => {
                 args.new_user.joined = Date.now();
                 var myUser = new User(args.new_user);
+                var myLogin = new Login(args.new_user);
+                myLogin.save()
                 myUser.save().then(() => {
                     resolve(true);
                 });

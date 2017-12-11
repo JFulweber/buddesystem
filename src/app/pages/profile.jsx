@@ -8,7 +8,6 @@ import gql from 'graphql-tag';
 
 class EmptyProfile extends React.Component{
     render(){
-        console.log(this.props.match.params.name)
         var query = gql`query($username:String!){
             user(username:$username){
                 username

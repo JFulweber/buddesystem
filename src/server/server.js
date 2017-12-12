@@ -142,6 +142,7 @@ server.get('/adduserdb', function (req, res) {
 });
 
 var path = require('path');
+const cookiesMiddleware = require('universal-cookie-express');
 
 server.get('/*', function(req,res){
     res.sendFile(path.resolve(__dirname,'../../dist/index.html'));

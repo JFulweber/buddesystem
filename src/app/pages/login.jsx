@@ -1,11 +1,22 @@
 import React from 'react';
 import styles from './login.scss';
 import BorderContainer from '../components/UI/BorderContainer.jsx';
-
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
+import { withCookies, Cookies } from 'react-cookie';
+
+
 export default class Login extends React.Component {
+
+    componentWillMount() {
+        const { cookies } = this.props;
+
+        this.state = {
+            loggedIn: cookies.get('loggedIn') || false
+        };
+    }
+
 
     constructor(props) {
         super(props);
@@ -20,8 +31,6 @@ export default class Login extends React.Component {
     }
 
     emailChange(event) {
-        console.log("event!");
-        console.log(event)
         this.setState({ email: event.target.value })
     }
 
@@ -31,6 +40,7 @@ export default class Login extends React.Component {
     }
 
     handleSubmit(event) {
+        console.log(this.state)
         event.preventDefault();
         var query = gql`query($email:String!,$pass:String!){
             validateLogin(email: $email, password: $pass)
@@ -66,8 +76,22 @@ export default class Login extends React.Component {
 }
 
 class OnLogin extends React.Component {
+    
+    componentWillMount() {
+        const { cookies } = this.props;
+
+        this.state = {
+            loggedIn: cookies.get('loggedIn') || false
+        };
+    }
+
+
     render() {
         if (this.props.data.validateLogin == true) {
+            const {cookies} = this.props;
+
+            cookies.set('loggedIn', true)
+            console.log(cookies);
             return (
                 <BorderContainer>
                     <p> Login Successful </p>
@@ -75,7 +99,6 @@ class OnLogin extends React.Component {
             )
         }
         else {
-            console.log(this.props.data);
             return (
                 <BorderContainer>
                     <p> Login Unsuccessful (wrong username/pass) </p>

@@ -4,17 +4,15 @@ import BorderContainer from '../components/UI/BorderContainer.jsx';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
-import { withCookies, Cookies } from 'react-cookie';
-
+import cookie from 'react-cookies';
 
 export default class Login extends React.Component {
 
     componentWillMount() {
-        const { cookies } = this.props;
 
-        this.state = {
+       /*  this.state = {
             loggedIn: cookies.get('loggedIn') || false
-        };
+        }; */
     }
 
 
@@ -76,22 +74,10 @@ export default class Login extends React.Component {
 }
 
 class OnLogin extends React.Component {
-    
-    componentWillMount() {
-        const { cookies } = this.props;
-
-        this.state = {
-            loggedIn: cookies.get('loggedIn') || false
-        };
-    }
-
 
     render() {
         if (this.props.data.validateLogin == true) {
-            const {cookies} = this.props;
-
-            cookies.set('loggedIn', true)
-            console.log(cookies);
+            cookie.save('loggedIn',true);
             return (
                 <BorderContainer>
                     <p> Login Successful </p>
@@ -99,6 +85,7 @@ class OnLogin extends React.Component {
             )
         }
         else {
+            cookie.save('loggedIn',false);
             return (
                 <BorderContainer>
                     <p> Login Unsuccessful (wrong username/pass) </p>

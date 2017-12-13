@@ -6,19 +6,20 @@ var resolvers = {
             return await new Promise((resolve, reject)=>{
                 Login.findOne({email:args.email}).then((err,result)=>{
                     if(err) throw err;
-                    console.log(err)
                     console.log(result)
                     if(result==undefined || result == null) {
-                        reject(false);
+                        console.log('omegalol')
                     }
                     if(result.password==args.password){
+                        console.log('you right you right')
                         resolve(true);
                     }
-                    resolve(false);
+                    else{
+                        console.log('you wrong you wrong')
+                    }
                 }).catch((err)=>{
-                    reject(false);
-                    throw(err)
-                    console.log('In catch - wrong email/email not found')
+                    console.log('In catch - wrong email/email not found')       
+                    throw(err)                    
                 })
             });
         },

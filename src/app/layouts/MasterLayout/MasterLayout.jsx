@@ -11,6 +11,9 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import { request } from 'graphql-request'
 import gql from 'graphql-tag';
 
+import cookie from 'react-cookies';
+
+
 const MY_QUERY = gql`
     query{
         users{
@@ -20,9 +23,10 @@ const MY_QUERY = gql`
 
 export default class MasterLayout extends React.Component {
     
+    
     constructor(props) {
         super(props)
-        
+
         // Bind the this context to the handler function
         this.handler = this.handler.bind(this);
 
@@ -31,6 +35,10 @@ export default class MasterLayout extends React.Component {
             messageShown: false
         };
        // var wUserData = graphql(MY_QUERY,{options: {notifyOnNetworkStatusChanged: true}})(Text)
+    }
+
+    componentWillMount(){
+        console.log(cookie);
     }
 
     // This method will be sent to the child component

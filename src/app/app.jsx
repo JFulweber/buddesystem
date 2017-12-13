@@ -18,9 +18,6 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 
 import { CookiesProvider } from 'react-cookie';
 
-import { withCookies, Cookies } from 'react-cookie';
-
-
 const client = new ApolloClient({
     // By default, this client will send queries to the
     //  `/graphql` endpoint on the same host
